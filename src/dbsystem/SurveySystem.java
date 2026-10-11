@@ -4,15 +4,14 @@
  */
 package dbsystem;
 
+import dao.RespondentQuestionDAO;
+import dao.SurveyDAO;
+import dao.UserDAO;
 import db.DatabaseManager;
-import java.awt.Color;
-import java.awt.Panel;
-import java.util.HashSet;
-import java.util.Set;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
+import java.awt.*;
+import java.util.*;
+import java.sql.*;
+import util.passwordUtil;
 
 /**
  *
@@ -25,6 +24,56 @@ public class SurveySystem extends javax.swing.JFrame {
      */
     public SurveySystem() {
         initComponents();
+    }
+
+    private UserDAO userDAO;
+    private SurveyDAO surveyDAO;
+    private RespondentQuestionDAO answersDAO;
+
+    public boolean register(String username, String password) {
+        String sql
+                = "INSERT INTO users(username, password_hash) VALUES (?, ?)";
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ps.setString(2, passwordUtil.hash(password));
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    public int login(String username, String password) {
+        String sql
+                = "SELECT id FROM users "
+                + "WHERE username=? AND password_hash=?";
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ps.setString(2, passwordUtil.hash(password));
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public void displayResults(int surveyId) {
+        
+    }
+
+    public void calculatePercentages(int surveyId) {
+        
+    }
+
+    public boolean editSurvey(int userId, int surveyId) {
+        return false;
+    }
+
+    public boolean changePassword(int userId, String p1, String p2) {
+        return false;
     }
 
     /**
@@ -1195,7 +1244,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        getContentPane().setBackground(new java.awt.Color(232, 220,247));
+        getContentPane().setBackground(new java.awt.Color(232, 220, 247));
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -1217,7 +1266,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
+
     }//GEN-LAST:event_formWindowClosing
 
     private void LietRegistracijaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowClosing
