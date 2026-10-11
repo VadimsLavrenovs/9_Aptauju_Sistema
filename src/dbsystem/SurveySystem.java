@@ -4,10 +4,15 @@
  */
 package dbsystem;
 
+import db.DatabaseManager;
 import java.awt.Color;
 import java.awt.Panel;
 import java.util.HashSet;
 import java.util.Set;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.SQLException;
 
 /**
  *

@@ -30,6 +30,17 @@ public class DatabaseManager {
                         + "password VARCHAR(15) NOT NULL, "
                         + "role VARCHAR(11) NOT NULL"
                 );
+                java.sql.Statement stmt = conn.createStatement();
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('janis', 'Parole123', 'Interviewer')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('liene', 'SafePass99', 'Interviewer')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('andris', 'ManaParole1', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('ieva', 'Zemene2026', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('peteris', 'Koks12345', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('anna', 'Sveiks2026', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('maris', 'Rudens777', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('kristine', 'ZilaDebess', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('edgars', 'ParoleX', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO user (username, password, role) VALUES ('santa', 'Laimigs12', 'Respondent')");
             }
             ResultSet survey = meta.getTables(null, null, "survey", null);
             if (!survey.next()) {
@@ -40,6 +51,17 @@ public class DatabaseManager {
                         + "user_id INT NOT NULL, "
                         + "FOREIGN KEY (user_id) REFERENCES user(userid))"
                 );
+                java.sql.Statement stmt = conn.createStatement();
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Kafijas lietošanas paradumi', 1)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Sporta aktivitātes ikdienā', 1)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Attālinātā darba efektivitāte', 2)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Mājdzīvnieku aprūpe', 2)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Iepirkšanās internetā', 1)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Ceļošanas galamērķi', 2)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Veselīgs uzturs', 1)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Automašīnu izvēles kritēriji', 2)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Viedierīču lietošanas laiks', 1)");
+                stmt.executeUpdate("INSERT INTO survey (title, user_id) VALUES ('Kultūras pasākumu apmeklētība', 2)");
             }
             ResultSet question = meta.getTables(null, null, "question", null);
             if (!question.next()) {
@@ -53,6 +75,17 @@ public class DatabaseManager {
                         + "survey_id INT NOT NULL, "
                         + "FOREIGN KEY (survey_id) REFERENCES survey(surveyid))"
                 );
+                java.sql.Statement stmt = conn.createStatement();
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Cik bieži Jūs dzerat kafiju?', 'Katru dienu', 'Reizi nedēļā', 'Nedzeru vispār', 1)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Kāda ir Jūsu mīļākā kafija?', 'Melnā kafija', 'Kapučīno', 'Late', 1)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Kur parasti pērkat kafiju?', 'DUS', 'Kafejnīcā', 'Gatavoju mājās', 1)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Cik bieži Jūs sportojat?', 'Katru dienu', '2-3 reizes nedēļā', 'Nesportoju', 2)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Kāds ir Jūsu mīļākais sports?', 'Skriešana', 'Peldēšana', 'Basketbols', 2)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Kur Jūs sportojat?', 'Sporta zālē', 'Brīvā dabā', 'Mājās', 2)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Vai lietojat cukuru pie kafijas?', 'Jā, vienu karoti', 'Jā, vairāk', 'Nē, nelietoju', 1)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Kurā dienas laikā sportojat?', 'No rīta', 'Pa dienu', 'Vakarā', 2)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Cik tērējat kafijai mēnesī?', 'Līdz 10 EUR', '10-30 EUR', 'Vairāk', 1)");
+                stmt.executeUpdate("INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) VALUES ('Vai sportojat vienatnē?', 'Jā, vienatnē', 'Kopā ar draugiem', 'Grupā', 2)");
             }
             ResultSet respondent_question = meta.getTables(null, null, "respondent_question", null);
             if (!respondent_question.next()) {
@@ -65,6 +98,17 @@ public class DatabaseManager {
                         + "question_id INT NOT NULL, "
                         + "FOREIGN KEY (question_id) REFERENCES question(questionid))"
                 );
+                java.sql.Statement stmt = conn.createStatement();
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Katru dienu', 3, 1)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Kapučīno', 4, 2)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Gatavoju mājās', 5, 3)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('2-3 reizes nedēļā', 6, 4)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Skriešana', 7, 5)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Brīvā dabā', 8, 6)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Nē, nelietoju', 9, 7)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Vakarā', 10, 8)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('10-30 EUR', 3, 9)");
+                stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Jā, vienatnē', 4, 10)");
             }
         } catch (SQLException e) {
             e.printStackTrace();
