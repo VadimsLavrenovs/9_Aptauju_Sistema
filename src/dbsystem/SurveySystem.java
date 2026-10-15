@@ -1324,8 +1324,8 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
         NavigacijasLogsRespondent.setVisible(false);
         ParolesMainisana.setVisible(true);
-        ParolesMainisana.setLocationRelativeTo(null);
         ParolesMainisana.setSize(450, 350);
+        ParolesMainisana.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton19MouseClicked
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
@@ -1338,8 +1338,8 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         this.setVisible(false);
         LoginLogs.setVisible(true);
+        LoginLogs.setSize(400, 320);
         LoginLogs.setLocationRelativeTo(null);
-        LoginLogs.setSize(538, 390);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
