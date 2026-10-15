@@ -24,6 +24,7 @@ public class SurveySystem extends javax.swing.JFrame {
      */
     public SurveySystem() {
         initComponents();
+        DatabaseManager.init();
     }
 
     private UserDAO userDAO;
@@ -187,13 +188,6 @@ public class SurveySystem extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        LietRegistracija.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                LietRegistracijaWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
         LietRegistracija.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 LietRegistracijaWindowClosing(evt);
@@ -895,11 +889,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 jButton20MouseClicked(evt);
             }
         });
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
-            }
-        });
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel35.setText("Sveiki lietotajs!");
@@ -1292,14 +1281,6 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void LietRegistracijaWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowGainedFocus
-
-    }//GEN-LAST:event_LietRegistracijaWindowGainedFocus
-
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
