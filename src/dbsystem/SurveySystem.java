@@ -1143,32 +1143,32 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukums.getContentPane().setLayout(AptaujuIzveideNosaukumsLayout);
         AptaujuIzveideNosaukumsLayout.setHorizontalGroup(
             AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujuIzveideNosaukumsLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+            .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
                         .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))))
+                        .addGap(18, 18, 18)))
+                .addGap(21, 21, 21))
         );
         AptaujuIzveideNosaukumsLayout.setVerticalGroup(
             AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujuIzveideNosaukumsLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(94, 94, 94)
+                .addGap(40, 40, 40)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67))
+                .addGap(49, 49, 49))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1254,15 +1254,15 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         this.setVisible(false);
         LietRegistracija.setVisible(true);
-        LietRegistracija.setLocationRelativeTo(null);
-        LietRegistracija.setSize(538, 390);
+        LietRegistracija.setSize(538, 400);
+        LietRegistracija.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         LietRegistracija.setVisible(false);
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(395, 260);
+        this.setSize(400, 260);
+        this.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -1272,18 +1272,17 @@ public class SurveySystem extends javax.swing.JFrame {
     private void LietRegistracijaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowClosing
         LietRegistracija.setVisible(false);
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(395, 260);
+        this.setSize(400, 260);
+        this.setLocationRelativeTo(null);        
     }//GEN-LAST:event_LietRegistracijaWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.setLocationRelativeTo(null);
-        this.setSize(395, 260);
+        this.setSize(400, 260);
+        this.setLocationRelativeTo(null);        
     }//GEN-LAST:event_formWindowOpened
 
     private void LietRegistracijaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowOpened
-        LietRegistracija.setLocationRelativeTo(null);
-        LietRegistracija.setSize(538, 390);
+      
     }//GEN-LAST:event_LietRegistracijaWindowOpened
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -1317,22 +1316,22 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         ParolesMainisana.setVisible(true);
-        ParolesMainisana.setLocationRelativeTo(null);
-        ParolesMainisana.setSize(450, 350);
+        ParolesMainisana.setSize(455, 295);
+        ParolesMainisana.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton20MouseClicked
 
     private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
         NavigacijasLogsRespondent.setVisible(false);
         ParolesMainisana.setVisible(true);
-        ParolesMainisana.setSize(450, 350);
+        ParolesMainisana.setSize(455, 295);
         ParolesMainisana.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton19MouseClicked
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
         LoginLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton18MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -1345,15 +1344,15 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
         RezultatuIzveleLogs.setVisible(false);
         RezultatuApkAtt.setVisible(true);
-        RezultatuApkAtt.setLocationRelativeTo(null);
-        RezultatuApkAtt.setSize(450, 350);
+        RezultatuApkAtt.setSize(403, 350);
+        RezultatuApkAtt.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton24MouseClicked
 
     private void jButton25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton25MouseClicked
         RezultatuIzveleLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton25MouseClicked
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
@@ -1367,99 +1366,99 @@ public class SurveySystem extends javax.swing.JFrame {
     private void jButton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         AptaujuIzveideNosaukums.setVisible(true);
+        AptaujuIzveideNosaukums.setSize(440, 250);
         AptaujuIzveideNosaukums.setLocationRelativeTo(null);
-        AptaujuIzveideNosaukums.setSize(450, 350);
     }//GEN-LAST:event_jButton22MouseClicked
 
     private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
         AptaujuIzveideNosaukums.setVisible(false);
         AptaujuIzveide.setVisible(true);
-        AptaujuIzveide.setLocationRelativeTo(null);
-        AptaujuIzveide.setSize(450, 350);
+        AptaujuIzveide.setSize(425, 405);
+        AptaujuIzveide.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton27MouseClicked
 
     private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
         AptaujuIzveideNosaukums.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton26MouseClicked
 
     private void AptaujuIzveideWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideWindowClosing
         AptaujuIzveide.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setSize(458, 390);        
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
     }//GEN-LAST:event_AptaujuIzveideWindowClosing
 
     private void ParolesMainisanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ParolesMainisanaWindowClosing
         ParolesMainisana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_ParolesMainisanaWindowClosing
 
     private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         RezultatuIzveleLogs.setVisible(true);
-        RezultatuIzveleLogs.setLocationRelativeTo(null);
-        RezultatuIzveleLogs.setSize(450, 350);
+        RezultatuIzveleLogs.setSize(455, 320);
+        RezultatuIzveleLogs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton21MouseClicked
 
     private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         AptaujasRedigesana.setVisible(true);
-        AptaujasRedigesana.setLocationRelativeTo(null);
-        AptaujasRedigesana.setSize(450, 350);
+        AptaujasRedigesana.setSize(450, 470);
+        AptaujasRedigesana.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton23MouseClicked
 
     private void jButton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseClicked
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_jButton28MouseClicked
 
     private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
         RezultatuApkAtt.setVisible(false);
         RezultatuIzveleLogs.setVisible(true);
-        RezultatuIzveleLogs.setLocationRelativeTo(null);
-        RezultatuIzveleLogs.setSize(450, 350);
+        RezultatuIzveleLogs.setSize(450, 320);
+        RezultatuIzveleLogs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_RezultatuApkAttWindowClosing
 
     private void AptaujasRedigesanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaWindowClosing
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_AptaujasRedigesanaWindowClosing
 
     private void RezultatuIzveleLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsWindowClosing
         RezultatuIzveleLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_RezultatuIzveleLogsWindowClosing
 
     private void NavigacijasLogsIntervetajsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_NavigacijasLogsIntervetajsWindowClosing
         NavigacijasLogsIntervetajs.setVisible(false);
         LoginLogs.setVisible(true);
-        LoginLogs.setLocationRelativeTo(null);
-        LoginLogs.setSize(450, 350);
+        LoginLogs.setSize(400, 320);
+        LoginLogs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_NavigacijasLogsIntervetajsWindowClosing
 
     private void LoginLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LoginLogsWindowClosing
         LoginLogs.setVisible(false);
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(395, 260);
+        this.setSize(400, 260);
+        this.setLocationRelativeTo(null);        
     }//GEN-LAST:event_LoginLogsWindowClosing
 
     private void AptaujuIzveideNosaukumsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsWindowClosing
         AptaujuIzveideNosaukums.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-        NavigacijasLogsIntervetajs.setSize(450, 350);
+        NavigacijasLogsIntervetajs.setSize(458, 390);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
 
     private void jButton26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseEntered
