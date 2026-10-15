@@ -1262,7 +1262,7 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracija.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setSize(450, 350);
+        this.setSize(395, 260);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -1273,12 +1273,12 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracija.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setSize(450, 350);
+        this.setSize(395, 260);
     }//GEN-LAST:event_LietRegistracijaWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.setLocationRelativeTo(null);
-        this.setSize(450, 350);
+        this.setSize(395, 260);
     }//GEN-LAST:event_formWindowOpened
 
     private void LietRegistracijaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowOpened
@@ -1452,7 +1452,7 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogs.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setSize(450, 350);
+        this.setSize(395, 260);
     }//GEN-LAST:event_LoginLogsWindowClosing
 
     private void AptaujuIzveideNosaukumsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsWindowClosing
