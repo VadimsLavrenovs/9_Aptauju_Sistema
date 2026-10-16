@@ -184,7 +184,7 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukumsAtpakalPoga = new javax.swing.JButton();
         AptaujuIzveideNosaukumsTalaklPoga = new javax.swing.JButton();
         AptaujuIzveideNosaukumsAptaujasNosaukums = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        AptaujasNos = new javax.swing.JLabel();
         GalvenaisLogsIeietPoga = new javax.swing.JButton();
         GalvenaisLogsRegistretiesPoga = new javax.swing.JButton();
 
@@ -1125,8 +1125,8 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Aptaujas nosaukums:");
+        AptaujasNos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AptaujasNos.setText("Aptaujas nosaukums:");
 
         javax.swing.GroupLayout AptaujuIzveideNosaukumsLayout = new javax.swing.GroupLayout(AptaujuIzveideNosaukums.getContentPane());
         AptaujuIzveideNosaukums.getContentPane().setLayout(AptaujuIzveideNosaukumsLayout);
@@ -1136,7 +1136,7 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(AptaujasNos)
                         .addGap(18, 18, 18)
                         .addComponent(AptaujuIzveideNosaukumsAptaujasNosaukums, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
@@ -1152,7 +1152,7 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AptaujuIzveideNosaukumsAptaujasNosaukums, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(AptaujasNos))
                 .addGap(40, 40, 40)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AptaujuIzveideNosaukumsTalaklPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1483,6 +1483,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AptaujasNos;
     private javax.swing.JDialog AptaujasRedigesana;
     private javax.swing.JTextField AptaujasRedigesana1AtbildeLogs;
     private javax.swing.JTextField AptaujasRedigesana2AtbildeLogs;
@@ -1554,7 +1555,6 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
