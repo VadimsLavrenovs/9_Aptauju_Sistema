@@ -87,9 +87,9 @@ public class SurveySystem extends javax.swing.JFrame {
     private void initComponents() {
 
         LietRegistracija = new javax.swing.JDialog();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        LietRegistracijaHelpPoga = new javax.swing.JButton();
+        LietRegistracijaRegistretiesPoga = new javax.swing.JButton();
+        LietRegistracijaAtpakalPoga = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -97,96 +97,96 @@ public class SurveySystem extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        LietRegistracijaIntervetajs = new javax.swing.JCheckBox();
         AptaujuIzveide = new javax.swing.JDialog();
         panel1 = new java.awt.Panel();
         jLabel7 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        AptaujuIzveideDzestPoga = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        AptaujuIzveideJautajumsLogs = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        AptaujuIzveideIzveidotAptauju = new javax.swing.JButton();
+        AptaujuIzveidePievienotJaut = new javax.swing.JButton();
         AtbilzuIevade = new javax.swing.JDialog();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        AtbilzuIevadeJautajums = new javax.swing.JLabel();
+        AtbilzuIevade1Atbilde = new javax.swing.JLabel();
+        AtbilzuIevade2Atbilde = new javax.swing.JLabel();
+        AtbilzuIevade3Atbilde = new javax.swing.JLabel();
+        AtbilzuIevadeTalakPoga = new javax.swing.JButton();
+        AtbilzuIevade2AtbildeBox = new javax.swing.JCheckBox();
+        AtbilzuIevade1AtbildeBox = new javax.swing.JCheckBox();
+        AtbilzuIevade3AtbildeBox = new javax.swing.JCheckBox();
         RezultatuApkAtt = new javax.swing.JDialog();
-        jButton10 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        RezultatuApkAttParaditRezultatu = new javax.swing.JButton();
+        RezultatuApkAttRezultati = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        RezultatuApkAttNakamaisJautPoga = new javax.swing.JButton();
+        RezultatuApkAttIeprieksejaisJautPoga = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        RezultatuApkAttJautKartiba = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        RezultatuApkAttJautSkaits = new javax.swing.JLabel();
         AptaujasRedigesana = new javax.swing.JDialog();
-        jButton13 = new javax.swing.JButton();
+        AptaujasRedigesanaSaglabatPoga = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jLabel27 = new javax.swing.JLabel();
+        AptaujasRedigesanaAptaujuIzvele = new javax.swing.JComboBox<>();
+        AptaujasRedigesanaPagajusaisJaut = new javax.swing.JButton();
+        AptaujasRedigesanaNakamaisJaut = new javax.swing.JButton();
+        AptaujasRedigesanaJautKartiba = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jButton28 = new javax.swing.JButton();
+        AptaujasRedigesanaJautSkaits = new javax.swing.JLabel();
+        AptaujasRedigesana1AtbildeLogs = new javax.swing.JTextField();
+        AptaujasRedigesana2AtbildeLogs = new javax.swing.JTextField();
+        AptaujasRedigesana3AtbildeLogs = new javax.swing.JTextField();
+        AptaujasRedigesanaJautLogs = new javax.swing.JTextField();
+        AptaujasRedigesanaIzietPoga = new javax.swing.JButton();
         ParolesMainisana = new javax.swing.JDialog();
-        jButton16 = new javax.swing.JButton();
+        ParolesMainisanaMainitParoliPoga = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
+        ParolesMainisanaPasreizejaParole = new javax.swing.JTextField();
+        ParolesMainisanaAtkartotiParole = new javax.swing.JTextField();
+        ParolesMainisanaJaunaParole = new javax.swing.JTextField();
         NavigacijasLogsRespondent = new javax.swing.JDialog();
         jLabel33 = new javax.swing.JLabel();
-        jButton17 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        RespondentsLogsPilditAptaujasPoga = new javax.swing.JButton();
+        RespondentsLogsMainitParoliPoga = new javax.swing.JButton();
         NavigacijasLogsIntervetajs = new javax.swing.JDialog();
-        jButton20 = new javax.swing.JButton();
+        IntervetajsLogsMainitParoliPoga = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
+        IntervetajsLogsApskatitiesRezultatusPoga = new javax.swing.JButton();
+        IntervetajsLogsVeidotAptaujuPoga = new javax.swing.JButton();
+        IntervetajsLogsRedigetAptaujuPoga = new javax.swing.JButton();
         LoginLogs = new javax.swing.JDialog();
         jLabel34 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        LoginLogsIeietPoga = new javax.swing.JButton();
+        LoginLogsLietotajvards = new javax.swing.JTextField();
+        LoginLogsParole = new javax.swing.JTextField();
         RezultatuIzveleLogs = new javax.swing.JDialog();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        RezultatuIzveleLogsAptaujasRezultati = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
+        RezultatuIzveleLogsApskatitPoga = new javax.swing.JButton();
+        RezultatuIzveleLogsAtpakalPoga = new javax.swing.JButton();
         AptaujuIzveideNosaukums = new javax.swing.JDialog();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        AptaujuIzveideNosaukumsAtpakalPoga = new javax.swing.JButton();
+        AptaujuIzveideNosaukumsTalaklPoga = new javax.swing.JButton();
+        AptaujuIzveideNosaukumsAptaujasNosaukums = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        GalvenaisLogsIeietPoga = new javax.swing.JButton();
+        GalvenaisLogsRegistretiesPoga = new javax.swing.JButton();
 
         LietRegistracija.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -197,30 +197,30 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("?");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        LietRegistracijaHelpPoga.setBackground(new java.awt.Color(204, 204, 204));
+        LietRegistracijaHelpPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LietRegistracijaHelpPoga.setText("?");
+        LietRegistracijaHelpPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                LietRegistracijaHelpPogaActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(204, 102, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Reģistrēties");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        LietRegistracijaRegistretiesPoga.setBackground(new java.awt.Color(204, 102, 255));
+        LietRegistracijaRegistretiesPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LietRegistracijaRegistretiesPoga.setText("Reģistrēties");
+        LietRegistracijaRegistretiesPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                LietRegistracijaRegistretiesPogaActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 102, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setText("Atpakaļ");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        LietRegistracijaAtpakalPoga.setBackground(new java.awt.Color(204, 102, 255));
+        LietRegistracijaAtpakalPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LietRegistracijaAtpakalPoga.setText("Atpakaļ");
+        LietRegistracijaAtpakalPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                LietRegistracijaAtpakalPogaMouseClicked(evt);
             }
         });
 
@@ -247,12 +247,12 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox1.setAlignmentX(1.0F);
-        jCheckBox1.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        LietRegistracijaIntervetajs.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        LietRegistracijaIntervetajs.setAlignmentX(1.0F);
+        LietRegistracijaIntervetajs.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        LietRegistracijaIntervetajs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                LietRegistracijaIntervetajsActionPerformed(evt);
             }
         });
 
@@ -264,9 +264,9 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(LietRegistracijaRegistretiesPoga)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5)
+                        .addComponent(LietRegistracijaAtpakalPoga)
                         .addGap(43, 43, 43))
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
                         .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,9 +283,9 @@ public class SurveySystem extends javax.swing.JFrame {
                                 .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(LietRegistracijaIntervetajs, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         LietRegistracijaLayout.setVerticalGroup(
@@ -307,16 +307,16 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
                         .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jCheckBox1))
+                            .addComponent(LietRegistracijaIntervetajs))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LietRegistracijaRegistretiesPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LietRegistracijaAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33))))
         );
 
@@ -329,9 +329,9 @@ public class SurveySystem extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Jautājums Nr.");
 
-        jButton6.setBackground(new java.awt.Color(255, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Dzēst");
+        AptaujuIzveideDzestPoga.setBackground(new java.awt.Color(255, 0, 0));
+        AptaujuIzveideDzestPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveideDzestPoga.setText("Dzēst");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Jautājums:");
@@ -345,7 +345,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         jLabel12.setText("Atbilde 3:");
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujuIzveideJautajumsLogs.setBackground(new java.awt.Color(204, 204, 204));
 
         jTextField7.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -372,7 +372,7 @@ public class SurveySystem extends javax.swing.JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton6))
+                                .addComponent(AptaujuIzveideDzestPoga))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,7 +382,7 @@ public class SurveySystem extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AptaujuIzveideJautajumsLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panel1Layout.setVerticalGroup(
@@ -391,12 +391,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton6)
+                    .addComponent(AptaujuIzveideDzestPoga)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujuIzveideJautajumsLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -412,12 +412,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jButton7.setBackground(new java.awt.Color(204, 102, 255));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Izveidot aptauju");
+        AptaujuIzveideIzveidotAptauju.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujuIzveideIzveidotAptauju.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveideIzveidotAptauju.setText("Izveidot aptauju");
 
-        jButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jButton8.setText("+ Pievienot jautājumu");
+        AptaujuIzveidePievienotJaut.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujuIzveidePievienotJaut.setText("+ Pievienot jautājumu");
 
         javax.swing.GroupLayout AptaujuIzveideLayout = new javax.swing.GroupLayout(AptaujuIzveide.getContentPane());
         AptaujuIzveide.getContentPane().setLayout(AptaujuIzveideLayout);
@@ -431,11 +431,11 @@ public class SurveySystem extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujuIzveideLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AptaujuIzveidePievienotJaut, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(113, 113, 113))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujuIzveideLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AptaujuIzveideIzveidotAptauju, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133))
         );
         AptaujuIzveideLayout.setVerticalGroup(
@@ -444,30 +444,30 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AptaujuIzveidePievienotJaut, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AptaujuIzveideIzveidotAptauju, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Jautājums");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Jautājums :)");
+        AtbilzuIevadeJautajums.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AtbilzuIevadeJautajums.setText("Jautājums :)");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setText("Atbilde 1");
+        AtbilzuIevade1Atbilde.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AtbilzuIevade1Atbilde.setText("Atbilde 1");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setText("Atbilde 2");
+        AtbilzuIevade2Atbilde.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AtbilzuIevade2Atbilde.setText("Atbilde 2");
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel17.setText("Atbilde 3");
+        AtbilzuIevade3Atbilde.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AtbilzuIevade3Atbilde.setText("Atbilde 3");
 
-        jButton9.setBackground(new java.awt.Color(204, 102, 255));
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Talāk");
+        AtbilzuIevadeTalakPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AtbilzuIevadeTalakPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AtbilzuIevadeTalakPoga.setText("Talāk");
 
         javax.swing.GroupLayout AtbilzuIevadeLayout = new javax.swing.GroupLayout(AtbilzuIevade.getContentPane());
         AtbilzuIevade.getContentPane().setLayout(AtbilzuIevadeLayout);
@@ -475,7 +475,7 @@ public class SurveySystem extends javax.swing.JFrame {
             AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                 .addGap(153, 153, 153)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 157, Short.MAX_VALUE))
             .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -483,18 +483,18 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14)
+                        .addComponent(AtbilzuIevadeJautajums)
                         .addGap(136, 136, 136))
                     .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox4))
+                            .addComponent(AtbilzuIevade2AtbildeBox)
+                            .addComponent(AtbilzuIevade1AtbildeBox)
+                            .addComponent(AtbilzuIevade3AtbildeBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17))
+                            .addComponent(AtbilzuIevade2Atbilde)
+                            .addComponent(AtbilzuIevade1Atbilde)
+                            .addComponent(AtbilzuIevade3Atbilde))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         AtbilzuIevadeLayout.setVerticalGroup(
@@ -503,25 +503,25 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtbilzuIevadeLayout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtbilzuIevadeLayout.createSequentialGroup()
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
+                            .addComponent(AtbilzuIevadeJautajums)
                             .addComponent(jLabel13))
                         .addGap(47, 47, 47)
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15)
-                            .addComponent(jCheckBox3))
+                            .addComponent(AtbilzuIevade1Atbilde)
+                            .addComponent(AtbilzuIevade1AtbildeBox))
                         .addGap(18, 18, 18)
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
-                                .addComponent(jLabel16)
+                                .addComponent(AtbilzuIevade2Atbilde)
                                 .addGap(18, 18, 18)
                                 .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jCheckBox4)))
-                            .addComponent(jCheckBox2))
+                                    .addComponent(AtbilzuIevade3Atbilde)
+                                    .addComponent(AtbilzuIevade3AtbildeBox)))
+                            .addComponent(AtbilzuIevade2AtbildeBox))
                         .addGap(131, 131, 131))))
         );
 
@@ -531,9 +531,9 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(204, 102, 255));
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("Parādīt rezultātu");
+        RezultatuApkAttParaditRezultatu.setBackground(new java.awt.Color(204, 102, 255));
+        RezultatuApkAttParaditRezultatu.setForeground(new java.awt.Color(255, 255, 255));
+        RezultatuApkAttParaditRezultatu.setText("Parādīt rezultātu");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -546,23 +546,23 @@ public class SurveySystem extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        RezultatuApkAttRezultati.setViewportView(jTable1);
 
-        jButton11.setBackground(new java.awt.Color(204, 102, 255));
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText(">");
+        RezultatuApkAttNakamaisJautPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RezultatuApkAttNakamaisJautPoga.setForeground(new java.awt.Color(255, 255, 255));
+        RezultatuApkAttNakamaisJautPoga.setText(">");
 
-        jButton12.setBackground(new java.awt.Color(204, 102, 255));
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("<");
+        RezultatuApkAttIeprieksejaisJautPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RezultatuApkAttIeprieksejaisJautPoga.setForeground(new java.awt.Color(255, 255, 255));
+        RezultatuApkAttIeprieksejaisJautPoga.setText("<");
 
         jLabel18.setText("Jautājums");
 
-        jLabel19.setText("...");
+        RezultatuApkAttJautKartiba.setText("...");
 
         jLabel20.setText("no");
 
-        jLabel21.setText("...");
+        RezultatuApkAttJautSkaits.setText("...");
 
         javax.swing.GroupLayout RezultatuApkAttLayout = new javax.swing.GroupLayout(RezultatuApkAtt.getContentPane());
         RezultatuApkAtt.getContentPane().setLayout(RezultatuApkAttLayout);
@@ -572,25 +572,25 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGroup(RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RezultatuApkAttLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(RezultatuApkAttLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
-                        .addComponent(jButton10)
+                        .addComponent(RezultatuApkAttParaditRezultatu)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(RezultatuApkAttLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuApkAttJautKartiba, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuApkAttJautSkaits, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
         RezultatuApkAttLayout.setVerticalGroup(
@@ -598,16 +598,16 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RezultatuApkAttLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(jLabel19)
+                    .addComponent(RezultatuApkAttJautKartiba)
                     .addComponent(jLabel20)
-                    .addComponent(jLabel21))
+                    .addComponent(RezultatuApkAttJautSkaits))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuApkAttParaditRezultatu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
         );
 
@@ -617,9 +617,9 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(204, 102, 255));
-        jButton13.setForeground(new java.awt.Color(255, 255, 255));
-        jButton13.setText("Saglabāt");
+        AptaujasRedigesanaSaglabatPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujasRedigesanaSaglabatPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujasRedigesanaSaglabatPoga.setText("Saglabāt");
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setText("Atbilde 1:");
@@ -636,41 +636,41 @@ public class SurveySystem extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel26.setText("Jautājums");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        AptaujasRedigesanaAptaujuIzvele.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton14.setBackground(new java.awt.Color(204, 102, 255));
-        jButton14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(255, 255, 255));
-        jButton14.setText("<");
+        AptaujasRedigesanaPagajusaisJaut.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujasRedigesanaPagajusaisJaut.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AptaujasRedigesanaPagajusaisJaut.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujasRedigesanaPagajusaisJaut.setText("<");
 
-        jButton15.setBackground(new java.awt.Color(204, 102, 255));
-        jButton15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(255, 255, 255));
-        jButton15.setText(">");
+        AptaujasRedigesanaNakamaisJaut.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujasRedigesanaNakamaisJaut.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AptaujasRedigesanaNakamaisJaut.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujasRedigesanaNakamaisJaut.setText(">");
 
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel27.setText("...");
+        AptaujasRedigesanaJautKartiba.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AptaujasRedigesanaJautKartiba.setText("...");
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel28.setText("no");
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel29.setText("...");
+        AptaujasRedigesanaJautSkaits.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AptaujasRedigesanaJautSkaits.setText("...");
 
-        jTextField10.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujasRedigesana1AtbildeLogs.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField11.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujasRedigesana2AtbildeLogs.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField12.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujasRedigesana3AtbildeLogs.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField13.setBackground(new java.awt.Color(204, 204, 204));
+        AptaujasRedigesanaJautLogs.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton28.setBackground(new java.awt.Color(204, 102, 255));
-        jButton28.setForeground(new java.awt.Color(255, 255, 255));
-        jButton28.setText("Iziet");
-        jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
+        AptaujasRedigesanaIzietPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujasRedigesanaIzietPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujasRedigesanaIzietPoga.setText("Iziet");
+        AptaujasRedigesanaIzietPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton28MouseClicked(evt);
+                AptaujasRedigesanaIzietPogaMouseClicked(evt);
             }
         });
 
@@ -691,34 +691,34 @@ public class SurveySystem extends javax.swing.JFrame {
                         .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                                 .addGap(96, 96, 96)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(AptaujasRedigesanaJautLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(AptaujasRedigesana2AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AptaujasRedigesana1AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AptaujasRedigesana3AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(AptaujasRedigesanaAptaujuIzvele, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujasRedigesanaLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jButton14)
+                .addComponent(AptaujasRedigesanaPagajusaisJaut)
                 .addGap(84, 84, 84)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
+                .addComponent(AptaujasRedigesanaJautKartiba)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel29)
+                .addComponent(AptaujasRedigesanaJautSkaits)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton15)
+                .addComponent(AptaujasRedigesanaNakamaisJaut)
                 .addGap(54, 54, 54))
             .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AptaujasRedigesanaSaglabatPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AptaujasRedigesanaIzietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AptaujasRedigesanaLayout.setVerticalGroup(
@@ -727,36 +727,36 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AptaujasRedigesanaAptaujuIzvele, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
-                            .addComponent(jButton14)
-                            .addComponent(jButton15)
-                            .addComponent(jLabel27)
+                            .addComponent(AptaujasRedigesanaPagajusaisJaut)
+                            .addComponent(AptaujasRedigesanaNakamaisJaut)
+                            .addComponent(AptaujasRedigesanaJautKartiba)
                             .addComponent(jLabel28)
-                            .addComponent(jLabel29))))
+                            .addComponent(AptaujasRedigesanaJautSkaits))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujasRedigesanaJautLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujasRedigesana1AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujasRedigesana2AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujasRedigesana3AtbildeLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujasRedigesanaSaglabatPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AptaujasRedigesanaIzietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -766,9 +766,9 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setBackground(new java.awt.Color(204, 102, 255));
-        jButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jButton16.setText("Mainīt paroli");
+        ParolesMainisanaMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
+        ParolesMainisanaMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
+        ParolesMainisanaMainitParoliPoga.setText("Mainīt paroli");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel30.setText("Pašreizējā parole:");
@@ -779,11 +779,11 @@ public class SurveySystem extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel32.setText("Jaunā parole(atkārtoti):");
 
-        jTextField14.setBackground(new java.awt.Color(204, 204, 204));
+        ParolesMainisanaPasreizejaParole.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField15.setBackground(new java.awt.Color(204, 204, 204));
+        ParolesMainisanaAtkartotiParole.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField16.setBackground(new java.awt.Color(204, 204, 204));
+        ParolesMainisanaJaunaParole.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout ParolesMainisanaLayout = new javax.swing.GroupLayout(ParolesMainisana.getContentPane());
         ParolesMainisana.getContentPane().setLayout(ParolesMainisanaLayout);
@@ -797,13 +797,13 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(ParolesMainisanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ParolesMainisanaAtkartotiParole, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ParolesMainisanaPasreizejaParole, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ParolesMainisanaJaunaParole, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
             .addGroup(ParolesMainisanaLayout.createSequentialGroup()
                 .addGap(169, 169, 169)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ParolesMainisanaMainitParoliPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ParolesMainisanaLayout.setVerticalGroup(
@@ -812,39 +812,39 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(ParolesMainisanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ParolesMainisanaPasreizejaParole, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(ParolesMainisanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ParolesMainisanaJaunaParole, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(ParolesMainisanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ParolesMainisanaAtkartotiParole, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
                 .addGap(18, 18, 18)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ParolesMainisanaMainitParoliPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel33.setText("Sveiki lietotajs!");
 
-        jButton17.setText("Pildīt aptaujas");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        RespondentsLogsPilditAptaujasPoga.setText("Pildīt aptaujas");
+        RespondentsLogsPilditAptaujasPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                RespondentsLogsPilditAptaujasPogaActionPerformed(evt);
             }
         });
 
-        jButton19.setText("Mainīt paroli");
-        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+        RespondentsLogsMainitParoliPoga.setText("Mainīt paroli");
+        RespondentsLogsMainitParoliPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton19MouseClicked(evt);
+                RespondentsLogsMainitParoliPogaMouseClicked(evt);
             }
         });
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        RespondentsLogsMainitParoliPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                RespondentsLogsMainitParoliPogaActionPerformed(evt);
             }
         });
 
@@ -859,8 +859,8 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(NavigacijasLogsRespondentLayout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addGroup(NavigacijasLogsRespondentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                    .addComponent(RespondentsLogsMainitParoliPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RespondentsLogsPilditAptaujasPoga, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NavigacijasLogsRespondentLayout.setVerticalGroup(
@@ -869,9 +869,9 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RespondentsLogsPilditAptaujasPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RespondentsLogsMainitParoliPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
 
@@ -881,57 +881,57 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton20.setBackground(new java.awt.Color(204, 102, 255));
-        jButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jButton20.setText("Mainīt paroli");
-        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
+        IntervetajsLogsMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
+        IntervetajsLogsMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
+        IntervetajsLogsMainitParoliPoga.setText("Mainīt paroli");
+        IntervetajsLogsMainitParoliPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton20MouseClicked(evt);
+                IntervetajsLogsMainitParoliPogaMouseClicked(evt);
             }
         });
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel35.setText("Sveiki lietotajs!");
 
-        jButton21.setBackground(new java.awt.Color(204, 102, 255));
-        jButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("Apskatīties rezultātus");
-        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+        IntervetajsLogsApskatitiesRezultatusPoga.setBackground(new java.awt.Color(204, 102, 255));
+        IntervetajsLogsApskatitiesRezultatusPoga.setForeground(new java.awt.Color(255, 255, 255));
+        IntervetajsLogsApskatitiesRezultatusPoga.setText("Apskatīties rezultātus");
+        IntervetajsLogsApskatitiesRezultatusPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton21MouseClicked(evt);
+                IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(evt);
             }
         });
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        IntervetajsLogsApskatitiesRezultatusPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                IntervetajsLogsApskatitiesRezultatusPogaActionPerformed(evt);
             }
         });
 
-        jButton22.setBackground(new java.awt.Color(204, 102, 255));
-        jButton22.setForeground(new java.awt.Color(255, 255, 255));
-        jButton22.setText("Veidot aptauju");
-        jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
+        IntervetajsLogsVeidotAptaujuPoga.setBackground(new java.awt.Color(204, 102, 255));
+        IntervetajsLogsVeidotAptaujuPoga.setForeground(new java.awt.Color(255, 255, 255));
+        IntervetajsLogsVeidotAptaujuPoga.setText("Veidot aptauju");
+        IntervetajsLogsVeidotAptaujuPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton22MouseClicked(evt);
+                IntervetajsLogsVeidotAptaujuPogaMouseClicked(evt);
             }
         });
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        IntervetajsLogsVeidotAptaujuPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                IntervetajsLogsVeidotAptaujuPogaActionPerformed(evt);
             }
         });
 
-        jButton23.setBackground(new java.awt.Color(204, 102, 255));
-        jButton23.setForeground(new java.awt.Color(255, 255, 255));
-        jButton23.setText("Rediģēt aptauju");
-        jButton23.addMouseListener(new java.awt.event.MouseAdapter() {
+        IntervetajsLogsRedigetAptaujuPoga.setBackground(new java.awt.Color(204, 102, 255));
+        IntervetajsLogsRedigetAptaujuPoga.setForeground(new java.awt.Color(255, 255, 255));
+        IntervetajsLogsRedigetAptaujuPoga.setText("Rediģēt aptauju");
+        IntervetajsLogsRedigetAptaujuPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton23MouseClicked(evt);
+                IntervetajsLogsRedigetAptaujuPogaMouseClicked(evt);
             }
         });
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        IntervetajsLogsRedigetAptaujuPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                IntervetajsLogsRedigetAptaujuPogaActionPerformed(evt);
             }
         });
 
@@ -946,10 +946,10 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(NavigacijasLogsIntervetajsLayout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addGroup(NavigacijasLogsIntervetajsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(IntervetajsLogsMainitParoliPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IntervetajsLogsApskatitiesRezultatusPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IntervetajsLogsVeidotAptaujuPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IntervetajsLogsRedigetAptaujuPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NavigacijasLogsIntervetajsLayout.setVerticalGroup(
@@ -958,13 +958,13 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IntervetajsLogsApskatitiesRezultatusPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IntervetajsLogsVeidotAptaujuPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IntervetajsLogsRedigetAptaujuPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IntervetajsLogsMainitParoliPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
 
@@ -980,18 +980,18 @@ public class SurveySystem extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel36.setText("Parole:");
 
-        jButton18.setBackground(new java.awt.Color(204, 102, 255));
-        jButton18.setForeground(new java.awt.Color(255, 255, 255));
-        jButton18.setText("Ieiet");
-        jButton18.addMouseListener(new java.awt.event.MouseAdapter() {
+        LoginLogsIeietPoga.setBackground(new java.awt.Color(204, 102, 255));
+        LoginLogsIeietPoga.setForeground(new java.awt.Color(255, 255, 255));
+        LoginLogsIeietPoga.setText("Ieiet");
+        LoginLogsIeietPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton18MouseClicked(evt);
+                LoginLogsIeietPogaMouseClicked(evt);
             }
         });
 
-        jTextField17.setBackground(new java.awt.Color(204, 204, 204));
+        LoginLogsLietotajvards.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField18.setBackground(new java.awt.Color(204, 204, 204));
+        LoginLogsParole.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout LoginLogsLayout = new javax.swing.GroupLayout(LoginLogs.getContentPane());
         LoginLogs.getContentPane().setLayout(LoginLogsLayout);
@@ -1004,12 +1004,12 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(LoginLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LoginLogsParole, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginLogsLietotajvards, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLogsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LoginLogsIeietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(158, 158, 158))
         );
         LoginLogsLayout.setVerticalGroup(
@@ -1018,13 +1018,13 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addGroup(LoginLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LoginLogsLietotajvards, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(LoginLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LoginLogsParole, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LoginLogsIeietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
@@ -1034,26 +1034,26 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        RezultatuIzveleLogsAptaujasRezultati.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel1.setText("Kādas aptaujas rezultātu Jūs gribat rezdēt?");
 
-        jButton24.setBackground(new java.awt.Color(204, 102, 255));
-        jButton24.setForeground(new java.awt.Color(255, 255, 255));
-        jButton24.setText("Apskatīt");
-        jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
+        RezultatuIzveleLogsApskatitPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RezultatuIzveleLogsApskatitPoga.setForeground(new java.awt.Color(255, 255, 255));
+        RezultatuIzveleLogsApskatitPoga.setText("Apskatīt");
+        RezultatuIzveleLogsApskatitPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton24MouseClicked(evt);
+                RezultatuIzveleLogsApskatitPogaMouseClicked(evt);
             }
         });
 
-        jButton25.setBackground(new java.awt.Color(204, 102, 255));
-        jButton25.setForeground(new java.awt.Color(255, 255, 255));
-        jButton25.setText("Atpakaļ");
-        jButton25.addMouseListener(new java.awt.event.MouseAdapter() {
+        RezultatuIzveleLogsAtpakalPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RezultatuIzveleLogsAtpakalPoga.setForeground(new java.awt.Color(255, 255, 255));
+        RezultatuIzveleLogsAtpakalPoga.setText("Atpakaļ");
+        RezultatuIzveleLogsAtpakalPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton25MouseClicked(evt);
+                RezultatuIzveleLogsAtpakalPogaMouseClicked(evt);
             }
         });
 
@@ -1064,14 +1064,14 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(RezultatuIzveleLogsLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(RezultatuIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RezultatuIzveleLogsAptaujasRezultati, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(RezultatuIzveleLogsLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuIzveleLogsApskatitPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuIzveleLogsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
         RezultatuIzveleLogsLayout.setVerticalGroup(
@@ -1080,11 +1080,11 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(47, 47, 47)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RezultatuIzveleLogsAptaujasRezultati, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(RezultatuIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RezultatuIzveleLogsApskatitPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RezultatuIzveleLogsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -1094,34 +1094,34 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton26.setBackground(new java.awt.Color(204, 102, 255));
-        jButton26.setForeground(new java.awt.Color(255, 255, 255));
-        jButton26.setText("Atpakaļ");
-        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
+        AptaujuIzveideNosaukumsAtpakalPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujuIzveideNosaukumsAtpakalPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveideNosaukumsAtpakalPoga.setText("Atpakaļ");
+        AptaujuIzveideNosaukumsAtpakalPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton26MouseClicked(evt);
+                AptaujuIzveideNosaukumsAtpakalPogaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton26MouseEntered(evt);
+                AptaujuIzveideNosaukumsAtpakalPogaMouseEntered(evt);
             }
         });
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        AptaujuIzveideNosaukumsAtpakalPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                AptaujuIzveideNosaukumsAtpakalPogaActionPerformed(evt);
             }
         });
 
-        jButton27.setBackground(new java.awt.Color(204, 102, 255));
-        jButton27.setForeground(new java.awt.Color(255, 255, 255));
-        jButton27.setText("Tālāk");
-        jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
+        AptaujuIzveideNosaukumsTalaklPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujuIzveideNosaukumsTalaklPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveideNosaukumsTalaklPoga.setText("Tālāk");
+        AptaujuIzveideNosaukumsTalaklPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton27MouseClicked(evt);
+                AptaujuIzveideNosaukumsTalaklPogaMouseClicked(evt);
             }
         });
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        AptaujuIzveideNosaukumsTalaklPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                AptaujuIzveideNosaukumsTalaklPogaActionPerformed(evt);
             }
         });
 
@@ -1138,11 +1138,11 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AptaujuIzveideNosaukumsAptaujasNosaukums, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AptaujuIzveideNosaukumsLayout.createSequentialGroup()
-                        .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AptaujuIzveideNosaukumsTalaklPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AptaujuIzveideNosaukumsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGap(21, 21, 21))
         );
@@ -1151,12 +1151,12 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AptaujuIzveideNosaukumsLayout.createSequentialGroup()
                 .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AptaujuIzveideNosaukumsAptaujasNosaukums, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(40, 40, 40)
                 .addGroup(AptaujuIzveideNosaukumsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AptaujuIzveideNosaukumsTalaklPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AptaujuIzveideNosaukumsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49))
         );
 
@@ -1178,21 +1178,21 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 102, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ieiet");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        GalvenaisLogsIeietPoga.setBackground(new java.awt.Color(204, 102, 255));
+        GalvenaisLogsIeietPoga.setForeground(new java.awt.Color(255, 255, 255));
+        GalvenaisLogsIeietPoga.setText("Ieiet");
+        GalvenaisLogsIeietPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                GalvenaisLogsIeietPogaMouseClicked(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 102, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Reģistrēties");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        GalvenaisLogsRegistretiesPoga.setBackground(new java.awt.Color(204, 102, 255));
+        GalvenaisLogsRegistretiesPoga.setForeground(new java.awt.Color(255, 255, 255));
+        GalvenaisLogsRegistretiesPoga.setText("Reģistrēties");
+        GalvenaisLogsRegistretiesPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                GalvenaisLogsRegistretiesPogaMouseClicked(evt);
             }
         });
 
@@ -1203,30 +1203,30 @@ public class SurveySystem extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GalvenaisLogsRegistretiesPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GalvenaisLogsIeietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(GalvenaisLogsIeietPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(GalvenaisLogsRegistretiesPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void LietRegistracijaHelpPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaHelpPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_LietRegistracijaHelpPogaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void LietRegistracijaRegistretiesPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaRegistretiesPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_LietRegistracijaRegistretiesPogaActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -1236,23 +1236,23 @@ public class SurveySystem extends javax.swing.JFrame {
         getContentPane().setBackground(new java.awt.Color(232, 220, 247));
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void LietRegistracijaIntervetajsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaIntervetajsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_LietRegistracijaIntervetajsActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void GalvenaisLogsRegistretiesPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GalvenaisLogsRegistretiesPogaMouseClicked
         this.setVisible(false);
         LietRegistracija.setVisible(true);
         LietRegistracija.setSize(538, 400);
         LietRegistracija.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_GalvenaisLogsRegistretiesPogaMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void LietRegistracijaAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaAtpakalPogaMouseClicked
         LietRegistracija.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
         this.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_LietRegistracijaAtpakalPogaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
@@ -1274,96 +1274,96 @@ public class SurveySystem extends javax.swing.JFrame {
       
     }//GEN-LAST:event_LietRegistracijaWindowOpened
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void RespondentsLogsPilditAptaujasPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_RespondentsLogsPilditAptaujasPogaActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void RespondentsLogsMainitParoliPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_RespondentsLogsMainitParoliPogaActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void IntervetajsLogsApskatitiesRezultatusPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void IntervetajsLogsVeidotAptaujuPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsVeidotAptaujuPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }//GEN-LAST:event_IntervetajsLogsVeidotAptaujuPogaActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void IntervetajsLogsRedigetAptaujuPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_IntervetajsLogsRedigetAptaujuPogaActionPerformed
 
-    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
+    private void IntervetajsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsMainitParoliPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         ParolesMainisana.setVisible(true);
         ParolesMainisana.setSize(455, 295);
         ParolesMainisana.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton20MouseClicked
+    }//GEN-LAST:event_IntervetajsLogsMainitParoliPogaMouseClicked
 
-    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
+    private void RespondentsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPogaMouseClicked
         NavigacijasLogsRespondent.setVisible(false);
         ParolesMainisana.setVisible(true);
         ParolesMainisana.setSize(455, 295);
         ParolesMainisana.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton19MouseClicked
+    }//GEN-LAST:event_RespondentsLogsMainitParoliPogaMouseClicked
 
-    private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
+    private void LoginLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginLogsIeietPogaMouseClicked
         LoginLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton18MouseClicked
+    }//GEN-LAST:event_LoginLogsIeietPogaMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void GalvenaisLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GalvenaisLogsIeietPogaMouseClicked
         this.setVisible(false);
         LoginLogs.setVisible(true);
         LoginLogs.setSize(400, 320);
         LoginLogs.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_GalvenaisLogsIeietPogaMouseClicked
 
-    private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
+    private void RezultatuIzveleLogsApskatitPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
         RezultatuIzveleLogs.setVisible(false);
         RezultatuApkAtt.setVisible(true);
         RezultatuApkAtt.setSize(403, 350);
         RezultatuApkAtt.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton24MouseClicked
+    }//GEN-LAST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
 
-    private void jButton25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton25MouseClicked
+    private void RezultatuIzveleLogsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
         RezultatuIzveleLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton25MouseClicked
+    }//GEN-LAST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void AptaujuIzveideNosaukumsAtpakalPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaActionPerformed
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void AptaujuIzveideNosaukumsTalaklPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsTalaklPogaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsTalaklPogaActionPerformed
 
-    private void jButton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseClicked
+    private void IntervetajsLogsVeidotAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsVeidotAptaujuPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         AptaujuIzveideNosaukums.setVisible(true);
         AptaujuIzveideNosaukums.setSize(440, 250);
         AptaujuIzveideNosaukums.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton22MouseClicked
+    }//GEN-LAST:event_IntervetajsLogsVeidotAptaujuPogaMouseClicked
 
-    private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
+    private void AptaujuIzveideNosaukumsTalaklPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsTalaklPogaMouseClicked
         AptaujuIzveideNosaukums.setVisible(false);
         AptaujuIzveide.setVisible(true);
         AptaujuIzveide.setSize(425, 405);
         AptaujuIzveide.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton27MouseClicked
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsTalaklPogaMouseClicked
 
-    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+    private void AptaujuIzveideNosaukumsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseClicked
         AptaujuIzveideNosaukums.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton26MouseClicked
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseClicked
 
     private void AptaujuIzveideWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideWindowClosing
         AptaujuIzveide.setVisible(false);
@@ -1379,26 +1379,26 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_ParolesMainisanaWindowClosing
 
-    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+    private void IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         RezultatuIzveleLogs.setVisible(true);
         RezultatuIzveleLogs.setSize(455, 320);
         RezultatuIzveleLogs.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton21MouseClicked
+    }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
 
-    private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
+    private void IntervetajsLogsRedigetAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         AptaujasRedigesana.setVisible(true);
         AptaujasRedigesana.setSize(450, 470);
         AptaujasRedigesana.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton23MouseClicked
+    }//GEN-LAST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
 
-    private void jButton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseClicked
+    private void AptaujasRedigesanaIzietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaIzietPogaMouseClicked
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_jButton28MouseClicked
+    }//GEN-LAST:event_AptaujasRedigesanaIzietPogaMouseClicked
 
     private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
         RezultatuApkAtt.setVisible(false);
@@ -1442,9 +1442,9 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
     }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
 
-    private void jButton26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseEntered
+    private void AptaujuIzveideNosaukumsAtpakalPogaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26MouseEntered
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
 
     /**
      * @param args the command line arguments
@@ -1484,72 +1484,84 @@ public class SurveySystem extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AptaujasRedigesana;
+    private javax.swing.JTextField AptaujasRedigesana1AtbildeLogs;
+    private javax.swing.JTextField AptaujasRedigesana2AtbildeLogs;
+    private javax.swing.JTextField AptaujasRedigesana3AtbildeLogs;
+    private javax.swing.JComboBox<String> AptaujasRedigesanaAptaujuIzvele;
+    private javax.swing.JButton AptaujasRedigesanaIzietPoga;
+    private javax.swing.JLabel AptaujasRedigesanaJautKartiba;
+    private javax.swing.JTextField AptaujasRedigesanaJautLogs;
+    private javax.swing.JLabel AptaujasRedigesanaJautSkaits;
+    private javax.swing.JButton AptaujasRedigesanaNakamaisJaut;
+    private javax.swing.JButton AptaujasRedigesanaPagajusaisJaut;
+    private javax.swing.JButton AptaujasRedigesanaSaglabatPoga;
     private javax.swing.JDialog AptaujuIzveide;
+    private javax.swing.JButton AptaujuIzveideDzestPoga;
+    private javax.swing.JButton AptaujuIzveideIzveidotAptauju;
+    private javax.swing.JTextField AptaujuIzveideJautajumsLogs;
     private javax.swing.JDialog AptaujuIzveideNosaukums;
+    private javax.swing.JTextField AptaujuIzveideNosaukumsAptaujasNosaukums;
+    private javax.swing.JButton AptaujuIzveideNosaukumsAtpakalPoga;
+    private javax.swing.JButton AptaujuIzveideNosaukumsTalaklPoga;
+    private javax.swing.JButton AptaujuIzveidePievienotJaut;
     private javax.swing.JDialog AtbilzuIevade;
+    private javax.swing.JLabel AtbilzuIevade1Atbilde;
+    private javax.swing.JCheckBox AtbilzuIevade1AtbildeBox;
+    private javax.swing.JLabel AtbilzuIevade2Atbilde;
+    private javax.swing.JCheckBox AtbilzuIevade2AtbildeBox;
+    private javax.swing.JLabel AtbilzuIevade3Atbilde;
+    private javax.swing.JCheckBox AtbilzuIevade3AtbildeBox;
+    private javax.swing.JLabel AtbilzuIevadeJautajums;
+    private javax.swing.JButton AtbilzuIevadeTalakPoga;
+    private javax.swing.JButton GalvenaisLogsIeietPoga;
+    private javax.swing.JButton GalvenaisLogsRegistretiesPoga;
+    private javax.swing.JButton IntervetajsLogsApskatitiesRezultatusPoga;
+    private javax.swing.JButton IntervetajsLogsMainitParoliPoga;
+    private javax.swing.JButton IntervetajsLogsRedigetAptaujuPoga;
+    private javax.swing.JButton IntervetajsLogsVeidotAptaujuPoga;
     private javax.swing.JDialog LietRegistracija;
+    private javax.swing.JButton LietRegistracijaAtpakalPoga;
+    private javax.swing.JButton LietRegistracijaHelpPoga;
+    private javax.swing.JCheckBox LietRegistracijaIntervetajs;
+    private javax.swing.JButton LietRegistracijaRegistretiesPoga;
     private javax.swing.JDialog LoginLogs;
+    private javax.swing.JButton LoginLogsIeietPoga;
+    private javax.swing.JTextField LoginLogsLietotajvards;
+    private javax.swing.JTextField LoginLogsParole;
     private javax.swing.JDialog NavigacijasLogsIntervetajs;
     private javax.swing.JDialog NavigacijasLogsRespondent;
     private javax.swing.JDialog ParolesMainisana;
+    private javax.swing.JTextField ParolesMainisanaAtkartotiParole;
+    private javax.swing.JTextField ParolesMainisanaJaunaParole;
+    private javax.swing.JButton ParolesMainisanaMainitParoliPoga;
+    private javax.swing.JTextField ParolesMainisanaPasreizejaParole;
+    private javax.swing.JButton RespondentsLogsMainitParoliPoga;
+    private javax.swing.JButton RespondentsLogsPilditAptaujasPoga;
     private javax.swing.JDialog RezultatuApkAtt;
+    private javax.swing.JButton RezultatuApkAttIeprieksejaisJautPoga;
+    private javax.swing.JLabel RezultatuApkAttJautKartiba;
+    private javax.swing.JLabel RezultatuApkAttJautSkaits;
+    private javax.swing.JButton RezultatuApkAttNakamaisJautPoga;
+    private javax.swing.JButton RezultatuApkAttParaditRezultatu;
+    private javax.swing.JScrollPane RezultatuApkAttRezultati;
     private javax.swing.JDialog RezultatuIzveleLogs;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton RezultatuIzveleLogsApskatitPoga;
+    private javax.swing.JComboBox<String> RezultatuIzveleLogsAptaujasRezultati;
+    private javax.swing.JButton RezultatuIzveleLogsAtpakalPoga;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -1564,22 +1576,10 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
