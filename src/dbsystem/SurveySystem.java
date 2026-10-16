@@ -8,6 +8,7 @@ import dao.RespondentQuestionDAO;
 import dao.SurveyDAO;
 import dao.UserDAO;
 import db.DatabaseManager;
+import static db.DatabaseManager.getConnection;
 import java.awt.*;
 import java.util.*;
 import java.sql.*;
@@ -62,11 +63,11 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     public void displayResults(int surveyId) {
-        
+
     }
 
     public void calculatePercentages(int surveyId) {
-        
+
     }
 
     public boolean editSurvey(int userId, int surveyId) {
@@ -200,6 +201,11 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracijaHelpPoga.setBackground(new java.awt.Color(204, 204, 204));
         LietRegistracijaHelpPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LietRegistracijaHelpPoga.setText("?");
+        LietRegistracijaHelpPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LietRegistracijaHelpPogaMouseClicked(evt);
+            }
+        });
         LietRegistracijaHelpPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LietRegistracijaHelpPogaActionPerformed(evt);
@@ -1244,14 +1250,14 @@ public class SurveySystem extends javax.swing.JFrame {
         this.setVisible(false);
         LietRegistracija.setVisible(true);
         LietRegistracija.setSize(538, 400);
-        LietRegistracija.setLocationRelativeTo(null);        
+        LietRegistracija.setLocationRelativeTo(null);
     }//GEN-LAST:event_GalvenaisLogsRegistretiesPogaMouseClicked
 
     private void LietRegistracijaAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaAtpakalPogaMouseClicked
         LietRegistracija.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
     }//GEN-LAST:event_LietRegistracijaAtpakalPogaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -1262,16 +1268,16 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracija.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
     }//GEN-LAST:event_LietRegistracijaWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.setSize(400, 260);
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
     }//GEN-LAST:event_formWindowOpened
 
     private void LietRegistracijaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowOpened
-      
+
     }//GEN-LAST:event_LietRegistracijaWindowOpened
 
     private void RespondentsLogsPilditAptaujasPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPogaActionPerformed
@@ -1298,7 +1304,7 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setVisible(false);
         ParolesMainisana.setVisible(true);
         ParolesMainisana.setSize(455, 295);
-        ParolesMainisana.setLocationRelativeTo(null);        
+        ParolesMainisana.setLocationRelativeTo(null);
     }//GEN-LAST:event_IntervetajsLogsMainitParoliPogaMouseClicked
 
     private void RespondentsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPogaMouseClicked
@@ -1312,7 +1318,7 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_LoginLogsIeietPogaMouseClicked
 
     private void GalvenaisLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GalvenaisLogsIeietPogaMouseClicked
@@ -1326,14 +1332,14 @@ public class SurveySystem extends javax.swing.JFrame {
         RezultatuIzveleLogs.setVisible(false);
         RezultatuApkAtt.setVisible(true);
         RezultatuApkAtt.setSize(403, 350);
-        RezultatuApkAtt.setLocationRelativeTo(null);        
+        RezultatuApkAtt.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
 
     private void RezultatuIzveleLogsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
         RezultatuIzveleLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
 
     private void AptaujuIzveideNosaukumsAtpakalPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaActionPerformed
@@ -1355,20 +1361,20 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukums.setVisible(false);
         AptaujuIzveide.setVisible(true);
         AptaujuIzveide.setSize(425, 405);
-        AptaujuIzveide.setLocationRelativeTo(null);        
+        AptaujuIzveide.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujuIzveideNosaukumsTalaklPogaMouseClicked
 
     private void AptaujuIzveideNosaukumsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseClicked
         AptaujuIzveideNosaukums.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseClicked
 
     private void AptaujuIzveideWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideWindowClosing
         AptaujuIzveide.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setSize(458, 390);        
+        NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujuIzveideWindowClosing
 
@@ -1376,75 +1382,132 @@ public class SurveySystem extends javax.swing.JFrame {
         ParolesMainisana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_ParolesMainisanaWindowClosing
 
     private void IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         RezultatuIzveleLogs.setVisible(true);
         RezultatuIzveleLogs.setSize(455, 320);
-        RezultatuIzveleLogs.setLocationRelativeTo(null);        
+        RezultatuIzveleLogs.setLocationRelativeTo(null);
     }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
 
     private void IntervetajsLogsRedigetAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
         AptaujasRedigesana.setVisible(true);
         AptaujasRedigesana.setSize(450, 470);
-        AptaujasRedigesana.setLocationRelativeTo(null);        
+        AptaujasRedigesana.setLocationRelativeTo(null);
     }//GEN-LAST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
 
     private void AptaujasRedigesanaIzietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaIzietPogaMouseClicked
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujasRedigesanaIzietPogaMouseClicked
 
     private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
         RezultatuApkAtt.setVisible(false);
         RezultatuIzveleLogs.setVisible(true);
         RezultatuIzveleLogs.setSize(450, 320);
-        RezultatuIzveleLogs.setLocationRelativeTo(null);        
+        RezultatuIzveleLogs.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuApkAttWindowClosing
 
     private void AptaujasRedigesanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaWindowClosing
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujasRedigesanaWindowClosing
 
     private void RezultatuIzveleLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsWindowClosing
         RezultatuIzveleLogs.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuIzveleLogsWindowClosing
 
     private void NavigacijasLogsIntervetajsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_NavigacijasLogsIntervetajsWindowClosing
         NavigacijasLogsIntervetajs.setVisible(false);
         LoginLogs.setVisible(true);
         LoginLogs.setSize(400, 320);
-        LoginLogs.setLocationRelativeTo(null);        
+        LoginLogs.setLocationRelativeTo(null);
     }//GEN-LAST:event_NavigacijasLogsIntervetajsWindowClosing
 
     private void LoginLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LoginLogsWindowClosing
         LoginLogs.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
     }//GEN-LAST:event_LoginLogsWindowClosing
 
     private void AptaujuIzveideNosaukumsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsWindowClosing
         AptaujuIzveideNosaukums.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
         NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);        
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
 
     private void AptaujuIzveideNosaukumsAtpakalPogaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
+
+    private void LietRegistracijaHelpPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaHelpPogaMouseClicked
+        try (Connection conn = getConnection(); Statement checkStmt = conn.createStatement()) {
+
+            System.out.println("\n=======================================================");
+            System.out.println("         PILNA DATUBĀZES SATURA PĀRBAUDE (GUI)         ");
+            System.out.println("=======================================================");
+
+            // 1. Tabula: APP_USER
+            System.out.println("\n Tabula: APP_USER");
+            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM app_user")) {
+                while (rs.next()) {
+                    System.out.println("  • ID: " + rs.getInt("userid")
+                            + " | Lietotājs: " + rs.getString("username")
+                            + " | Loma: " + rs.getString("role"));
+                }
+            }
+
+            // 2. Tabula: SURVEY
+            System.out.println("\n Tabula: SURVEY");
+            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM survey")) {
+                while (rs.next()) {
+                    System.out.println("  • ID: " + rs.getInt("surveyid")
+                            + " | Nosaukums: " + rs.getString("title")
+                            + " | Izveidotāja ID: " + rs.getInt("user_id"));
+                }
+            }
+
+            // 3. Tabula: QUESTION
+            System.out.println("\n Tabula: QUESTION");
+            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM question")) {
+                while (rs.next()) {
+                    System.out.println("  • ID: " + rs.getInt("questionid")
+                            + " | Jautājums: " + rs.getString("question")
+                            + " | A1: " + rs.getString("answer_1")
+                            + " | A2: " + rs.getString("answer_2")
+                            + " | A3: " + rs.getString("answer_3")
+                            + " | Aptaujas ID: " + rs.getInt("survey_id"));
+                }
+            }
+
+            // 4. Tabula: RESPONDENT_QUESTION
+            System.out.println("\n Tabula: RESPONDENT_QUESTION");
+            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM respondent_question")) {
+                while (rs.next()) {
+                    System.out.println("  • ID: " + rs.getInt("respondent_questionid")
+                            + " | Atbilde: " + rs.getString("answer")
+                            + " | Lietotāja ID: " + rs.getInt("user_id")
+                            + " | Jautājuma ID: " + rs.getInt("question_id"));
+                }
+            }
+            System.out.println("\n=======================================================\n");
+
+        } catch (SQLException e) {
+            System.out.println("Kļūda, mēģinot nolasīt datus no GUI pogas: " + e.getMessage());
+        }
+    }//GEN-LAST:event_LietRegistracijaHelpPogaMouseClicked
 
     /**
      * @param args the command line arguments
