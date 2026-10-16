@@ -131,9 +131,9 @@ public class DatabaseManager {
                 System.out.println("Datubāzes inicializācija pabeigta bez kļūdām!");
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("Kļūda: NetBeans nevar atrast Derby draivera failu! " + e.getMessage());
+            System.out.println("Nevar atrast Derby draivera failu:" + e.getMessage());
         } catch (SQLException e) {
-            System.out.println("Datubāzes kļūda izpildes laikā: " + e.getMessage());
+            System.out.println("Datubāzes kļūda:" + e.getMessage());
         }
     }
 }
