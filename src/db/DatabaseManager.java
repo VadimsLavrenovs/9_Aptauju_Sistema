@@ -20,13 +20,11 @@ public class DatabaseManager {
 
     public static void init() {
         try {
-            // 1. Reģistrējam Derby draiveri atmiņā
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
             try (Connection conn = getConnection()) {
                 DatabaseMetaData meta = conn.getMetaData();
 
-                // --- 1. LIETOTĀJU TABULA (APP_USER) ---
                 ResultSet user = meta.getTables(null, null, "APP_USER", null);
                 if (!user.next()) {
                     conn.createStatement().executeUpdate(
@@ -50,7 +48,6 @@ public class DatabaseManager {
                     System.out.println("Tabula 'app_user' veiksmīgi izveidota!");
                 }
 
-                // --- 2. APTAUJU TABULA (SURVEY) ---
                 ResultSet survey = meta.getTables(null, null, "SURVEY", null);
                 if (!survey.next()) {
                     conn.createStatement().executeUpdate(
@@ -74,8 +71,7 @@ public class DatabaseManager {
                     System.out.println("Tabula 'survey' veiksmīgi izveidota!");
                 }
 
-                // --- 3. JAUTĀJUMU TABULA (QUESTION) ---
-                // Salabots 'anwser' uz 'answer' gan izveidē, gan INSERT vaicājumos
+
                 ResultSet question = meta.getTables(null, null, "QUESTION", null);
                 if (!question.next()) {
                     conn.createStatement().executeUpdate(
@@ -102,8 +98,7 @@ public class DatabaseManager {
                     System.out.println("Tabula 'question' veiksmīgi izveidota!");
                 }
 
-                // --- 4. ATBILŽU TABULA (RESPONDENT_QUESTION) ---
-                // Pielikts trūkstošais komats un salabots 'anwser' vārds
+
                 ResultSet respondent_question = meta.getTables(null, null, "RESPONDENT_QUESTION", null);
                 if (!respondent_question.next()) {
                     conn.createStatement().executeUpdate(
