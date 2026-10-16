@@ -26,6 +26,7 @@ public class SurveySystem extends javax.swing.JFrame {
     public SurveySystem() {
         initComponents();
         DatabaseManager.init();
+        System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
     private UserDAO userDAO;
