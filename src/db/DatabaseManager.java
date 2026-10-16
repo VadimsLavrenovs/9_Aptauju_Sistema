@@ -99,7 +99,7 @@ public class DatabaseManager {
                 conn.createStatement().executeUpdate(
                         "CREATE TABLE respondent_question ("
                         + "respondent_questionid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
-                        + "answer VARCHAR(50) NULL, "
+                        + "answer VARCHAR(50), "
                         + "user_id INT NOT NULL, "
                         + "FOREIGN KEY (user_id) REFERENCES app_user(userid), "
                         + "question_id INT NOT NULL, "
@@ -118,7 +118,53 @@ public class DatabaseManager {
                 stmt.executeUpdate("INSERT INTO respondent_question (answer, user_id, question_id) VALUES ('Jā, vienatnē', 4, 10)");
                 System.out.println("Tabula 'respondent_question' veiksmīgi izveidota!");
             }
-            System.out.println("Datubāzes inicializācija pabeigta bez kļūdām!");
+
+            try (Statement checkStmt = conn.createStatement()) {
+
+                // 1. Tabula: APP_USER
+                System.out.println("\n[1] Tabula: APP_USER");
+                try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM app_user")) {
+                    while (rs.next()) {
+                        System.out.println("  • ID: " + rs.getInt("userid")
+                                + " | Lietotājs: " + rs.getString("username")
+                                + " | Loma: " + rs.getString("role"));
+                    }
+                }
+
+                // 2. Tabula: SURVEY
+                System.out.println("\n[2] Tabula: SURVEY");
+                try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM survey")) {
+                    while (rs.next()) {
+                        System.out.println("  • ID: " + rs.getInt("surveyid")
+                                + " | Nosaukums: " + rs.getString("title")
+                                + " | Izveidotāja ID: " + rs.getInt("user_id"));
+                    }
+                }
+
+                // 3. Tabula: QUESTION
+                System.out.println("\n[3] Tabula: QUESTION");
+                try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM question")) {
+                    while (rs.next()) {
+                        System.out.println("  • ID: " + rs.getInt("questionid")
+                                + " | Jautājums: " + rs.getString("question")
+                                + " | A1: " + rs.getString("answer_1")
+                                + " | A2: " + rs.getString("answer_2")
+                                + " | A3: " + rs.getString("answer_3")
+                                + " | Aptaujas ID: " + rs.getInt("survey_id"));
+                    }
+                }
+
+                // 4. Tabula: RESPONDENT_QUESTION
+                System.out.println("\n[4] Tabula: RESPONDENT_QUESTION");
+                try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM respondent_question")) {
+                    while (rs.next()) {
+                        System.out.println("  • ID: " + rs.getInt("respondent_questionid")
+                                + " | Atbilde: " + rs.getString("answer")
+                                + " | Lietotāja ID: " + rs.getInt("user_id")
+                                + " | Jautājuma ID: " + rs.getInt("question_id"));
+                    }
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
