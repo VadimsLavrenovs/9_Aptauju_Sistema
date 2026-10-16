@@ -118,6 +118,7 @@
             <Property name="text" type="java.lang.String" value="Re&#x123;istr&#x113;ties"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LietRegistracijaRegistretiesPogaMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LietRegistracijaRegistretiesPogaActionPerformed"/>
           </Events>
         </Component>
@@ -1137,6 +1138,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="RespondentsLogsPilditAptaujasPoga">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="cc" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pild&#x12b;t aptaujas"/>
           </Properties>
           <Events>
@@ -1145,6 +1152,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="RespondentsLogsMainitParoliPoga">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="cc" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Main&#x12b;t paroli"/>
           </Properties>
           <Events>

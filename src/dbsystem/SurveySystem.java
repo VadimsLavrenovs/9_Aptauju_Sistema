@@ -12,6 +12,7 @@ import static db.DatabaseManager.getConnection;
 import java.awt.*;
 import java.util.*;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import util.passwordUtil;
 
 /**
@@ -216,6 +217,11 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracijaRegistretiesPoga.setBackground(new java.awt.Color(204, 102, 255));
         LietRegistracijaRegistretiesPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LietRegistracijaRegistretiesPoga.setText("Reģistrēties");
+        LietRegistracijaRegistretiesPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LietRegistracijaRegistretiesPogaMouseClicked(evt);
+            }
+        });
         LietRegistracijaRegistretiesPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LietRegistracijaRegistretiesPogaActionPerformed(evt);
@@ -836,6 +842,8 @@ public class SurveySystem extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel33.setText("Sveiki lietotajs!");
 
+        RespondentsLogsPilditAptaujasPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RespondentsLogsPilditAptaujasPoga.setForeground(new java.awt.Color(255, 255, 255));
         RespondentsLogsPilditAptaujasPoga.setText("Pildīt aptaujas");
         RespondentsLogsPilditAptaujasPoga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -843,6 +851,8 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
+        RespondentsLogsMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
+        RespondentsLogsMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
         RespondentsLogsMainitParoliPoga.setText("Mainīt paroli");
         RespondentsLogsMainitParoliPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1316,10 +1326,39 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_RespondentsLogsMainitParoliPogaMouseClicked
 
     private void LoginLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginLogsIeietPogaMouseClicked
-        LoginLogs.setVisible(false);
-        NavigacijasLogsIntervetajs.setVisible(true);
-        NavigacijasLogsIntervetajs.setSize(458, 390);
-        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        String sql = "SELECT userid, username, role FROM APP_USER WHERE username = ? AND password = ?";
+
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            // Izmantojam tavus precīzos teksta lauku mainīgo nosaukumus no Navigatora
+            ps.setString(1, LoginLogsLietotajvards.getText().trim());
+            ps.setString(2, LoginLogsParole.getText());
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String role = rs.getString("role");
+
+                // 1. Aizveram autorizācijas logu
+                LoginLogs.setVisible(false);
+
+                // 2. Pārbaudām lomu un atveram īsto dialogu ar taviem izmēriem
+                if ("Interviewer".equalsIgnoreCase(role)) {
+                    NavigacijasLogsIntervetajs.setVisible(true);
+                    NavigacijasLogsIntervetajs.setSize(458, 390);
+                    NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+                } else {
+                    NavigacijasLogsRespondent.setVisible(true);
+                    NavigacijasLogsRespondent.setSize(458, 390);
+                    NavigacijasLogsRespondent.setLocationRelativeTo(null);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Nepareizs lietotājvārds vai parole.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_LoginLogsIeietPogaMouseClicked
 
     private void GalvenaisLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GalvenaisLogsIeietPogaMouseClicked
@@ -1466,7 +1505,8 @@ public class SurveySystem extends javax.swing.JFrame {
                 while (rs.next()) {
                     System.out.println("  • ID: " + rs.getInt("userid")
                             + " | Lietotājs: " + rs.getString("username")
-                            + " | Loma: " + rs.getString("role"));
+                            + " | Loma: " + rs.getString("role")
+                            + " | Parole: " + rs.getString("password"));
                 }
             }
 
@@ -1509,6 +1549,43 @@ public class SurveySystem extends javax.swing.JFrame {
             System.out.println("Kļūda, mēģinot nolasīt datus no GUI pogas: " + e.getMessage());
         }
     }//GEN-LAST:event_LietRegistracijaHelpPogaMouseClicked
+
+    private void LietRegistracijaRegistretiesPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaRegistretiesPogaMouseClicked
+        String username = jTextField3.getText().trim();
+        String password = new String(jTextField4.getText());
+        String confirm = new String(jTextField5.getText());
+
+        String role = LietRegistracijaIntervetajs.isSelected() ? "Interviewer" : "Respondent";
+
+        if (username.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Aizpildiet visus laukus.");
+            return;
+        }
+        if (!password.equals(confirm)) {
+            JOptionPane.showMessageDialog(this, "Paroles nesakrīt.");
+            return;
+        }
+
+        String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
+
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, role);
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Reģistrācija veiksmīga.");
+
+            LietRegistracija.setVisible(false);
+            this.setVisible(true);
+            this.setSize(400, 260);
+            this.setLocationRelativeTo(null);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Lietotājvārds jau eksistē vai datubāzes kļūda.");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_LietRegistracijaRegistretiesPogaMouseClicked
 
     /**
      * @param args the command line arguments
