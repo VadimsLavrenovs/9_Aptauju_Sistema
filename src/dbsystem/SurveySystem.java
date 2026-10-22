@@ -30,9 +30,7 @@ public class SurveySystem extends javax.swing.JFrame {
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
-    private UserDAO userDAO;
-    private SurveyDAO surveyDAO;
-    private RespondentQuestionDAO answersDAO;
+
 
     public boolean register(String username, String password, String role) {
         String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
