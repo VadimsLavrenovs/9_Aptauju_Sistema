@@ -30,8 +30,6 @@ public class SurveySystem extends javax.swing.JFrame {
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
-
-
     public boolean register(String username, String password, String role) {
         String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
 
@@ -51,13 +49,17 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     public String login(String username, String password) {
-        String sql = "SELECT role FROM APP_USER WHERE username = ? AND password = ?";
+        String sql = "SELECT role, userid FROM APP_USER WHERE username = ? AND password = ?";
         try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, username);
             ps.setString(2, password);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    // Pašreizējais lietotājs
+                    int klientsId = rs.getInt("userid");
+                    util.Session.startSession(klientsId);
+
                     return rs.getString("role");
                 }
             }
@@ -81,8 +83,28 @@ public class SurveySystem extends javax.swing.JFrame {
         return false;
     }
 
-    public boolean changePassword(int userId, String p1, String p2) {
-        return false;
+    public boolean changePassword(int userId, String jaunaParole, String atkaroti) {
+        if (jaunaParole.isEmpty() || atkaroti.isEmpty()) {
+            return false;
+        }
+
+        if (!jaunaParole.equals(atkaroti)) {
+            return false;
+        }
+
+        String sql = "UPDATE APP_USER SET password = ? WHERE userid = ?";
+
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, jaunaParole);
+            ps.setInt(2, userId);
+
+            int change = ps.executeUpdate();
+            return change > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
@@ -764,6 +786,11 @@ public class SurveySystem extends javax.swing.JFrame {
         ParolesMainisanaMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
         ParolesMainisanaMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
         ParolesMainisanaMainitParoliPoga.setText("Mainīt paroli");
+        ParolesMainisanaMainitParoliPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ParolesMainisanaMainitParoliPogaMouseClicked(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel30.setText("Pašreizējā parole:");
@@ -820,6 +847,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addComponent(ParolesMainisanaMainitParoliPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
+
+        NavigacijasLogsRespondent.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                NavigacijasLogsRespondentWindowClosing(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel33.setText("Sveiki lietotajs!");
@@ -1012,8 +1045,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 RezultatuIzveleLogsWindowClosing(evt);
             }
         });
-
-        RezultatuIzveleLogsAptaujasRezultati.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel1.setText("Kādas aptaujas rezultātu Jūs gribat rezdēt?");
@@ -1214,6 +1245,13 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void IntervetajsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsMainitParoliPogaMouseClicked
+        if (!util.Session.isLoggedIn()) {
+            JOptionPane.showMessageDialog(this, "Kļūda!");
+            return;
+        }
+        ParolesMainisanaPasreizejaParole.setText("");
+        ParolesMainisanaAtkartotiParole.setText("");
+        ParolesMainisanaJaunaParole.setText("");
         NavigacijasLogsIntervetajs.setVisible(false);
         ParolesMainisana.setVisible(true);
         ParolesMainisana.setSize(455, 295);
@@ -1221,6 +1259,13 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_IntervetajsLogsMainitParoliPogaMouseClicked
 
     private void RespondentsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPogaMouseClicked
+        if (!util.Session.isLoggedIn()) {
+            JOptionPane.showMessageDialog(this, "Kļūda!");
+            return;
+        }
+        ParolesMainisanaPasreizejaParole.setText("");
+        ParolesMainisanaAtkartotiParole.setText("");
+        ParolesMainisanaJaunaParole.setText("");
         NavigacijasLogsRespondent.setVisible(false);
         ParolesMainisana.setVisible(true);
         ParolesMainisana.setSize(455, 295);
@@ -1255,9 +1300,16 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogs.setVisible(true);
         LoginLogs.setSize(400, 320);
         LoginLogs.setLocationRelativeTo(null);
+        LoginLogsParole.setText("");
+        LoginLogsLietotajvards.setText("");
     }//GEN-LAST:event_GalvenaisLogsIeietPogaMouseClicked
 
     private void RezultatuIzveleLogsApskatitPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
+        String izveletaAptauja = RezultatuIzveleLogsAptaujasRezultati.getSelectedItem().toString();
+        if (izveletaAptauja == null || izveletaAptauja.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Kļūda!");
+            return;
+        }
         RezultatuIzveleLogs.setVisible(false);
         RezultatuApkAtt.setVisible(true);
         RezultatuApkAtt.setSize(403, 350);
@@ -1364,9 +1416,13 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogs.setVisible(true);
         LoginLogs.setSize(400, 320);
         LoginLogs.setLocationRelativeTo(null);
+        LoginLogsParole.setText("");
+        LoginLogsLietotajvards.setText("");
     }//GEN-LAST:event_NavigacijasLogsIntervetajsWindowClosing
 
     private void LoginLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LoginLogsWindowClosing
+        // Izdzēš pašreizējo lietotāju
+        util.Session.clearSession();
         LoginLogs.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
@@ -1489,6 +1545,42 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_LoginLogsParoleKeyPressed
+
+    private void NavigacijasLogsRespondentWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_NavigacijasLogsRespondentWindowClosing
+        NavigacijasLogsRespondent.setVisible(false);
+        LoginLogs.setVisible(true);
+        LoginLogs.setSize(400, 320);
+        LoginLogs.setLocationRelativeTo(null);
+        LoginLogsParole.setText("");
+        LoginLogsLietotajvards.setText("");
+    }//GEN-LAST:event_NavigacijasLogsRespondentWindowClosing
+
+    private void ParolesMainisanaMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ParolesMainisanaMainitParoliPogaMouseClicked
+        int userId = util.Session.getCurrentUserId();
+
+        if (ParolesMainisanaJaunaParole.getText().isEmpty() || ParolesMainisanaAtkartotiParole.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Aizpildiet visus laukus!");
+            return;
+        }
+        if (!ParolesMainisanaJaunaParole.getText().equals(ParolesMainisanaAtkartotiParole.getText())) {
+            JOptionPane.showMessageDialog(this, "Paroles nesakrīt!");
+            return;
+        }
+
+        boolean izdevas = changePassword(userId, ParolesMainisanaJaunaParole.getText(), ParolesMainisanaAtkartotiParole.getText());
+        if (izdevas) {
+            JOptionPane.showMessageDialog(this, "Parole veiksmīgi nomainīta!");
+            util.Session.clearSession();
+            ParolesMainisana.setVisible(false);
+            LoginLogs.setVisible(true);
+            LoginLogs.setSize(400, 320);
+            LoginLogs.setLocationRelativeTo(null);
+            LoginLogsParole.setText("");
+            LoginLogsLietotajvards.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Kļūda!");
+        }
+    }//GEN-LAST:event_ParolesMainisanaMainitParoliPogaMouseClicked
 
     /**
      * @param args the command line arguments
