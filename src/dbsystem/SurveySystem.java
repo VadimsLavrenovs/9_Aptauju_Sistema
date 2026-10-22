@@ -34,34 +34,41 @@ public class SurveySystem extends javax.swing.JFrame {
     private SurveyDAO surveyDAO;
     private RespondentQuestionDAO answersDAO;
 
-    public boolean register(String username, String password) {
-        String sql
-                = "INSERT INTO users(username, password_hash) VALUES (?, ?)";
+    public boolean register(String username, String password, String role) {
+        String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
+
         try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
             ps.setString(1, username);
-            ps.setString(2, passwordUtil.hash(password));
+            ps.setString(2, password);
+            ps.setString(3, role);
+
             ps.executeUpdate();
             return true;
+
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }
 
-    public int login(String username, String password) {
-        String sql
-                = "SELECT id FROM users "
-                + "WHERE username=? AND password_hash=?";
+    public String login(String username, String password) {
+        String sql = "SELECT role FROM APP_USER WHERE username = ? AND password = ?";
         try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, username);
-            ps.setString(2, passwordUtil.hash(password));
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("id");
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("role");
+                }
             }
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
             e.printStackTrace();
         }
-        return -1;
+
+        return null;
     }
 
     public void displayResults(int surveyId) {
@@ -195,9 +202,6 @@ public class SurveySystem extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 LietRegistracijaWindowClosing(evt);
             }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                LietRegistracijaWindowOpened(evt);
-            }
         });
 
         LietRegistracijaHelpPoga.setBackground(new java.awt.Color(204, 204, 204));
@@ -208,11 +212,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 LietRegistracijaHelpPogaMouseClicked(evt);
             }
         });
-        LietRegistracijaHelpPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LietRegistracijaHelpPogaActionPerformed(evt);
-            }
-        });
 
         LietRegistracijaRegistretiesPoga.setBackground(new java.awt.Color(204, 102, 255));
         LietRegistracijaRegistretiesPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -220,11 +219,6 @@ public class SurveySystem extends javax.swing.JFrame {
         LietRegistracijaRegistretiesPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LietRegistracijaRegistretiesPogaMouseClicked(evt);
-            }
-        });
-        LietRegistracijaRegistretiesPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LietRegistracijaRegistretiesPogaActionPerformed(evt);
             }
         });
 
@@ -254,20 +248,10 @@ public class SurveySystem extends javax.swing.JFrame {
         jTextField4.setBackground(new java.awt.Color(204, 204, 204));
 
         jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
 
         LietRegistracijaIntervetajs.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         LietRegistracijaIntervetajs.setAlignmentX(1.0F);
         LietRegistracijaIntervetajs.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        LietRegistracijaIntervetajs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LietRegistracijaIntervetajsActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout LietRegistracijaLayout = new javax.swing.GroupLayout(LietRegistracija.getContentPane());
         LietRegistracija.getContentPane().setLayout(LietRegistracijaLayout);
@@ -845,11 +829,6 @@ public class SurveySystem extends javax.swing.JFrame {
         RespondentsLogsPilditAptaujasPoga.setBackground(new java.awt.Color(204, 102, 255));
         RespondentsLogsPilditAptaujasPoga.setForeground(new java.awt.Color(255, 255, 255));
         RespondentsLogsPilditAptaujasPoga.setText("Pildīt aptaujas");
-        RespondentsLogsPilditAptaujasPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RespondentsLogsPilditAptaujasPogaActionPerformed(evt);
-            }
-        });
 
         RespondentsLogsMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
         RespondentsLogsMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
@@ -857,11 +836,6 @@ public class SurveySystem extends javax.swing.JFrame {
         RespondentsLogsMainitParoliPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RespondentsLogsMainitParoliPogaMouseClicked(evt);
-            }
-        });
-        RespondentsLogsMainitParoliPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RespondentsLogsMainitParoliPogaActionPerformed(evt);
             }
         });
 
@@ -918,11 +892,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(evt);
             }
         });
-        IntervetajsLogsApskatitiesRezultatusPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IntervetajsLogsApskatitiesRezultatusPogaActionPerformed(evt);
-            }
-        });
 
         IntervetajsLogsVeidotAptaujuPoga.setBackground(new java.awt.Color(204, 102, 255));
         IntervetajsLogsVeidotAptaujuPoga.setForeground(new java.awt.Color(255, 255, 255));
@@ -932,11 +901,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 IntervetajsLogsVeidotAptaujuPogaMouseClicked(evt);
             }
         });
-        IntervetajsLogsVeidotAptaujuPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IntervetajsLogsVeidotAptaujuPogaActionPerformed(evt);
-            }
-        });
 
         IntervetajsLogsRedigetAptaujuPoga.setBackground(new java.awt.Color(204, 102, 255));
         IntervetajsLogsRedigetAptaujuPoga.setForeground(new java.awt.Color(255, 255, 255));
@@ -944,11 +908,6 @@ public class SurveySystem extends javax.swing.JFrame {
         IntervetajsLogsRedigetAptaujuPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IntervetajsLogsRedigetAptaujuPogaMouseClicked(evt);
-            }
-        });
-        IntervetajsLogsRedigetAptaujuPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IntervetajsLogsRedigetAptaujuPogaActionPerformed(evt);
             }
         });
 
@@ -1009,6 +968,11 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogsLietotajvards.setBackground(new java.awt.Color(204, 204, 204));
 
         LoginLogsParole.setBackground(new java.awt.Color(204, 204, 204));
+        LoginLogsParole.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LoginLogsParoleKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLogsLayout = new javax.swing.GroupLayout(LoginLogs.getContentPane());
         LoginLogs.getContentPane().setLayout(LoginLogsLayout);
@@ -1118,14 +1082,6 @@ public class SurveySystem extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AptaujuIzveideNosaukumsAtpakalPogaMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AptaujuIzveideNosaukumsAtpakalPogaMouseEntered(evt);
-            }
-        });
-        AptaujuIzveideNosaukumsAtpakalPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AptaujuIzveideNosaukumsAtpakalPogaActionPerformed(evt);
-            }
         });
 
         AptaujuIzveideNosaukumsTalaklPoga.setBackground(new java.awt.Color(204, 102, 255));
@@ -1134,11 +1090,6 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukumsTalaklPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AptaujuIzveideNosaukumsTalaklPogaMouseClicked(evt);
-            }
-        });
-        AptaujuIzveideNosaukumsTalaklPoga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AptaujuIzveideNosaukumsTalaklPogaActionPerformed(evt);
             }
         });
 
@@ -1187,9 +1138,6 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -1237,25 +1185,9 @@ public class SurveySystem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LietRegistracijaHelpPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaHelpPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LietRegistracijaHelpPogaActionPerformed
-
-    private void LietRegistracijaRegistretiesPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaRegistretiesPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LietRegistracijaRegistretiesPogaActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         getContentPane().setBackground(new java.awt.Color(232, 220, 247));
     }//GEN-LAST:event_formWindowGainedFocus
-
-    private void LietRegistracijaIntervetajsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LietRegistracijaIntervetajsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LietRegistracijaIntervetajsActionPerformed
 
     private void GalvenaisLogsRegistretiesPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GalvenaisLogsRegistretiesPogaMouseClicked
         this.setVisible(false);
@@ -1271,10 +1203,6 @@ public class SurveySystem extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }//GEN-LAST:event_LietRegistracijaAtpakalPogaMouseClicked
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
-    }//GEN-LAST:event_formWindowClosing
-
     private void LietRegistracijaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowClosing
         LietRegistracija.setVisible(false);
         this.setVisible(true);
@@ -1286,30 +1214,6 @@ public class SurveySystem extends javax.swing.JFrame {
         this.setSize(400, 260);
         this.setLocationRelativeTo(null);
     }//GEN-LAST:event_formWindowOpened
-
-    private void LietRegistracijaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LietRegistracijaWindowOpened
-
-    }//GEN-LAST:event_LietRegistracijaWindowOpened
-
-    private void RespondentsLogsPilditAptaujasPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RespondentsLogsPilditAptaujasPogaActionPerformed
-
-    private void RespondentsLogsMainitParoliPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RespondentsLogsMainitParoliPogaActionPerformed
-
-    private void IntervetajsLogsApskatitiesRezultatusPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaActionPerformed
-
-    private void IntervetajsLogsVeidotAptaujuPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsVeidotAptaujuPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IntervetajsLogsVeidotAptaujuPogaActionPerformed
-
-    private void IntervetajsLogsRedigetAptaujuPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IntervetajsLogsRedigetAptaujuPogaActionPerformed
 
     private void IntervetajsLogsMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsMainitParoliPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
@@ -1326,38 +1230,25 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_RespondentsLogsMainitParoliPogaMouseClicked
 
     private void LoginLogsIeietPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginLogsIeietPogaMouseClicked
-        String sql = "SELECT userid, username, role FROM APP_USER WHERE username = ? AND password = ?";
+        String username = LoginLogsLietotajvards.getText().trim();
+        String password = LoginLogsParole.getText();
 
-        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        String role = login(username, password);
 
-            // Izmantojam tavus precīzos teksta lauku mainīgo nosaukumus no Navigatora
-            ps.setString(1, LoginLogsLietotajvards.getText().trim());
-            ps.setString(2, LoginLogsParole.getText());
+        if (role != null) {
+            LoginLogs.setVisible(false);
 
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String role = rs.getString("role");
-
-                // 1. Aizveram autorizācijas logu
-                LoginLogs.setVisible(false);
-
-                // 2. Pārbaudām lomu un atveram īsto dialogu ar taviem izmēriem
-                if ("Interviewer".equalsIgnoreCase(role)) {
-                    NavigacijasLogsIntervetajs.setVisible(true);
-                    NavigacijasLogsIntervetajs.setSize(458, 390);
-                    NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-                } else {
-                    NavigacijasLogsRespondent.setVisible(true);
-                    NavigacijasLogsRespondent.setSize(458, 390);
-                    NavigacijasLogsRespondent.setLocationRelativeTo(null);
-                }
-
+            if ("Interviewer".equalsIgnoreCase(role)) {
+                NavigacijasLogsIntervetajs.setVisible(true);
+                NavigacijasLogsIntervetajs.setSize(458, 390);
+                NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
             } else {
-                JOptionPane.showMessageDialog(this, "Nepareizs lietotājvārds vai parole.");
+                NavigacijasLogsRespondent.setVisible(true);
+                NavigacijasLogsRespondent.setSize(458, 390);
+                NavigacijasLogsRespondent.setLocationRelativeTo(null);
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
-            e.printStackTrace();
+        } else {
+            JOptionPane.showMessageDialog(this, "Nepareizs lietotājvārds vai parole.");
         }
     }//GEN-LAST:event_LoginLogsIeietPogaMouseClicked
 
@@ -1381,14 +1272,6 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setSize(458, 390);
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
-
-    private void AptaujuIzveideNosaukumsAtpakalPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaActionPerformed
-
-    private void AptaujuIzveideNosaukumsTalaklPogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsTalaklPogaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AptaujuIzveideNosaukumsTalaklPogaActionPerformed
 
     private void IntervetajsLogsVeidotAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsVeidotAptaujuPogaMouseClicked
         NavigacijasLogsIntervetajs.setVisible(false);
@@ -1426,10 +1309,21 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_ParolesMainisanaWindowClosing
 
     private void IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
-        NavigacijasLogsIntervetajs.setVisible(false);
-        RezultatuIzveleLogs.setVisible(true);
-        RezultatuIzveleLogs.setSize(455, 320);
-        RezultatuIzveleLogs.setLocationRelativeTo(null);
+        try (Connection conn = getConnection(); Statement checkStmt = conn.createStatement()) {
+            try (ResultSet rs = checkStmt.executeQuery("SELECT title FROM survey")) {
+                while (rs.next()) {
+                    String nosaukums = rs.getString("title");
+                    RezultatuIzveleLogsAptaujasRezultati.addItem(nosaukums);
+                }
+                NavigacijasLogsIntervetajs.setVisible(false);
+                RezultatuIzveleLogs.setVisible(true);
+                RezultatuIzveleLogs.setSize(455, 320);
+                RezultatuIzveleLogs.setLocationRelativeTo(null);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
 
     private void IntervetajsLogsRedigetAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
@@ -1488,10 +1382,6 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
 
-    private void AptaujuIzveideNosaukumsAtpakalPogaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AptaujuIzveideNosaukumsAtpakalPogaMouseEntered
-
     private void LietRegistracijaHelpPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaHelpPogaMouseClicked
         try (Connection conn = getConnection(); Statement checkStmt = conn.createStatement()) {
 
@@ -1499,7 +1389,6 @@ public class SurveySystem extends javax.swing.JFrame {
             System.out.println("         PILNA DATUBĀZES SATURA PĀRBAUDE (GUI)         ");
             System.out.println("=======================================================");
 
-            // 1. Tabula: APP_USER
             System.out.println("\n Tabula: APP_USER");
             try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM app_user")) {
                 while (rs.next()) {
@@ -1510,7 +1399,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 }
             }
 
-            // 2. Tabula: SURVEY
             System.out.println("\n Tabula: SURVEY");
             try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM survey")) {
                 while (rs.next()) {
@@ -1520,7 +1408,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 }
             }
 
-            // 3. Tabula: QUESTION
             System.out.println("\n Tabula: QUESTION");
             try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM question")) {
                 while (rs.next()) {
@@ -1533,7 +1420,6 @@ public class SurveySystem extends javax.swing.JFrame {
                 }
             }
 
-            // 4. Tabula: RESPONDENT_QUESTION
             System.out.println("\n Tabula: RESPONDENT_QUESTION");
             try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM respondent_question")) {
                 while (rs.next()) {
@@ -1566,26 +1452,45 @@ public class SurveySystem extends javax.swing.JFrame {
             return;
         }
 
-        String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
+        boolean isRegistered = register(username, password, role);
 
-        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setString(1, username);
-            ps.setString(2, password);
-            ps.setString(3, role);
-
-            ps.executeUpdate();
+        if (isRegistered) {
             JOptionPane.showMessageDialog(this, "Reģistrācija veiksmīga.");
 
             LietRegistracija.setVisible(false);
             this.setVisible(true);
             this.setSize(400, 260);
             this.setLocationRelativeTo(null);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Lietotājvārds jau eksistē vai datubāzes kļūda.");
-            e.printStackTrace();
+        } else {
+            JOptionPane.showMessageDialog(this, "Lietotājvārds jau eksistē vai radās datubāzes kļūda.");
         }
     }//GEN-LAST:event_LietRegistracijaRegistretiesPogaMouseClicked
+
+    private void LoginLogsParoleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginLogsParoleKeyPressed
+        // Pievienota funkcija kad mēģīni loginoties var uzspiest enter lai nespiest pogu "Ieiet"
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            String username = LoginLogsLietotajvards.getText().trim();
+            String password = LoginLogsParole.getText();
+
+            String role = login(username, password);
+
+            if (role != null) {
+                LoginLogs.setVisible(false);
+
+                if ("Interviewer".equalsIgnoreCase(role)) {
+                    NavigacijasLogsIntervetajs.setVisible(true);
+                    NavigacijasLogsIntervetajs.setSize(458, 390);
+                    NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+                } else {
+                    NavigacijasLogsRespondent.setVisible(true);
+                    NavigacijasLogsRespondent.setSize(458, 390);
+                    NavigacijasLogsRespondent.setLocationRelativeTo(null);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Nepareizs lietotājvārds vai parole.");
+            }
+        }
+    }//GEN-LAST:event_LoginLogsParoleKeyPressed
 
     /**
      * @param args the command line arguments

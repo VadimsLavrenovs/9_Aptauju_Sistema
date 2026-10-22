@@ -5,7 +5,6 @@
     <Container class="javax.swing.JDialog" name="LietRegistracija">
       <Events>
         <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="LietRegistracijaWindowClosing"/>
-        <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="LietRegistracijaWindowOpened"/>
       </Events>
 
       <Layout>
@@ -104,7 +103,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LietRegistracijaHelpPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LietRegistracijaHelpPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="LietRegistracijaRegistretiesPoga">
@@ -119,7 +117,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LietRegistracijaRegistretiesPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LietRegistracijaRegistretiesPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="LietRegistracijaAtpakalPoga">
@@ -188,9 +185,6 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="LietRegistracijaIntervetajs">
           <Properties>
@@ -202,9 +196,6 @@
               <Insets value="[5, 5, 5, 5]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LietRegistracijaIntervetajsActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1146,9 +1137,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Pild&#x12b;t aptaujas"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RespondentsLogsPilditAptaujasPogaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="RespondentsLogsMainitParoliPoga">
           <Properties>
@@ -1162,7 +1150,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RespondentsLogsMainitParoliPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RespondentsLogsMainitParoliPogaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1245,7 +1232,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntervetajsLogsApskatitiesRezultatusPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IntervetajsLogsApskatitiesRezultatusPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="IntervetajsLogsVeidotAptaujuPoga">
@@ -1260,7 +1246,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntervetajsLogsVeidotAptaujuPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IntervetajsLogsVeidotAptaujuPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="IntervetajsLogsRedigetAptaujuPoga">
@@ -1275,7 +1260,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntervetajsLogsRedigetAptaujuPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IntervetajsLogsRedigetAptaujuPogaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1372,6 +1356,9 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="LoginLogsParoleKeyPressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1529,8 +1516,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AptaujuIzveideNosaukumsAtpakalPogaMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AptaujuIzveideNosaukumsAtpakalPogaMouseEntered"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AptaujuIzveideNosaukumsAtpakalPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="AptaujuIzveideNosaukumsTalaklPoga">
@@ -1545,7 +1530,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AptaujuIzveideNosaukumsTalaklPogaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AptaujuIzveideNosaukumsTalaklPogaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="AptaujuIzveideNosaukumsAptaujasNosaukums">
@@ -1573,7 +1557,6 @@
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowGainedFocus" listener="java.awt.event.WindowFocusListener" parameters="java.awt.event.WindowEvent" handler="formWindowGainedFocus"/>
-    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
     <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
   </Events>
   <AuxValues>
