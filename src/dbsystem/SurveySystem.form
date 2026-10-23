@@ -628,6 +628,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Par&#x101;d&#x12b;t rezult&#x101;tu"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RezultatuApkAttParaditRezultatuMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="RezultatuApkAttRezultati">
           <AuxValues>
@@ -660,6 +663,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RezultatuApkAttNakamaisJautPogaMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="RezultatuApkAttIeprieksejaisJautPoga">
           <Properties>
@@ -671,6 +677,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RezultatuApkAttIeprieksejaisJautPogaMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>

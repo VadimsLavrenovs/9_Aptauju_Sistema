@@ -6,14 +6,15 @@ package dbsystem;
 
 import dao.RespondentQuestionDAO;
 import dao.SurveyDAO;
-import dao.UserDAO;
 import db.DatabaseManager;
 import static db.DatabaseManager.getConnection;
-import java.awt.*;
 import java.util.*;
 import java.sql.*;
-import javax.swing.JOptionPane;
-import util.passwordUtil;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import model.Question;
+import model.RespondentQuestion;
+import model.Survey;
 
 /**
  *
@@ -24,8 +25,13 @@ public class SurveySystem extends javax.swing.JFrame {
     /**
      * Creates new form Aptauja
      */
+    private java.util.List<Survey> currentSurveys = new ArrayList<>();
+    private java.util.List<Question> currentQuestions = new ArrayList<>();
+    private int currentQuestionIndex = 0;
+
     public SurveySystem() {
         initComponents();
+        prepareResultsTable();
         DatabaseManager.init();
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
@@ -71,8 +77,80 @@ public class SurveySystem extends javax.swing.JFrame {
         return null;
     }
 
-    public void displayResults(int surveyId) {
+    private void prepareResultsTable() {
+        jTable1.setModel(new DefaultTableModel(new Object[][]{}, new String[]{"Jautājums", "Atbilde", "Skaits", "%"}) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(170);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(90);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
 
+    }
+
+    public void displayResults(int surveyId) {
+        try {
+            currentQuestions = new SurveyDAO().getQuestionsBySurveyId(surveyId);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus.");
+            e.printStackTrace();
+            return;
+        }
+
+        if (currentQuestions.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Šai aptaujai vēl nav jautājumu.");
+            return;
+        }
+
+        currentQuestionIndex = 0;
+        showQuestionHeader();
+
+        RezultatuIzveleLogs.setVisible(false);
+        RezultatuApkAtt.setVisible(true);
+        RezultatuApkAtt.setSize(403, 350);
+        RezultatuApkAtt.setLocationRelativeTo(null);
+    }
+
+    private void showQuestionHeader() {
+        RezultatuApkAttJautKartiba.setText(String.valueOf(currentQuestionIndex + 1));
+        RezultatuApkAttJautSkaits.setText(String.valueOf(currentQuestions.size()));
+        ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+    }
+
+    private void showCurrentQuestionResults() {
+        Question q = currentQuestions.get(currentQuestionIndex);
+
+        java.util.List<RespondentQuestion> answers;
+        try {
+            answers = new RespondentQuestionDAO().getAnswersByQuestionId(q.getQuestionId());
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot rezultātus.");
+            e.printStackTrace();
+            return;
+        }
+
+        String[] options = {q.getAnswer_1(), q.getAnswer_2(), q.getAnswer_3()};
+        int[] counts = new int[options.length];
+        for (RespondentQuestion rq : answers) {
+            for (int i = 0; i < options.length; i++) {
+                if (options[i].equals(rq.getAnswer())) {
+                    counts[i]++;
+                }
+            }
+        }
+
+        int total = answers.size();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        for (int i = 0; i < options.length; i++) {
+            long percent = total == 0 ? 0 : Math.round(counts[i] * 100.0 / total);
+            String jautajums = (i == 0) ? q.getQuestion() : "";
+            model.addRow(new Object[]{jautajums, options[i], counts[i], percent + "%"});
+        }
     }
 
     public void calculatePercentages(int surveyId) {
@@ -551,6 +629,11 @@ public class SurveySystem extends javax.swing.JFrame {
         RezultatuApkAttParaditRezultatu.setBackground(new java.awt.Color(204, 102, 255));
         RezultatuApkAttParaditRezultatu.setForeground(new java.awt.Color(255, 255, 255));
         RezultatuApkAttParaditRezultatu.setText("Parādīt rezultātu");
+        RezultatuApkAttParaditRezultatu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RezultatuApkAttParaditRezultatuMouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -568,10 +651,20 @@ public class SurveySystem extends javax.swing.JFrame {
         RezultatuApkAttNakamaisJautPoga.setBackground(new java.awt.Color(204, 102, 255));
         RezultatuApkAttNakamaisJautPoga.setForeground(new java.awt.Color(255, 255, 255));
         RezultatuApkAttNakamaisJautPoga.setText(">");
+        RezultatuApkAttNakamaisJautPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RezultatuApkAttNakamaisJautPogaMouseClicked(evt);
+            }
+        });
 
         RezultatuApkAttIeprieksejaisJautPoga.setBackground(new java.awt.Color(204, 102, 255));
         RezultatuApkAttIeprieksejaisJautPoga.setForeground(new java.awt.Color(255, 255, 255));
         RezultatuApkAttIeprieksejaisJautPoga.setText("<");
+        RezultatuApkAttIeprieksejaisJautPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RezultatuApkAttIeprieksejaisJautPogaMouseClicked(evt);
+            }
+        });
 
         jLabel18.setText("Jautājums");
 
@@ -1305,15 +1398,14 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_GalvenaisLogsIeietPogaMouseClicked
 
     private void RezultatuIzveleLogsApskatitPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
-        String izveletaAptauja = RezultatuIzveleLogsAptaujasRezultati.getSelectedItem().toString();
-        if (izveletaAptauja == null || izveletaAptauja.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Kļūda!");
+        int index = RezultatuIzveleLogsAptaujasRezultati.getSelectedIndex();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(this, "Lūdzu, izvēlieties aptauju!");
             return;
         }
-        RezultatuIzveleLogs.setVisible(false);
-        RezultatuApkAtt.setVisible(true);
-        RezultatuApkAtt.setSize(403, 350);
-        RezultatuApkAtt.setLocationRelativeTo(null);
+        Survey survey = currentSurveys.get(index);
+        RezultatuApkAtt.setTitle(survey.getTitle());
+        displayResults(survey.getSurveyId());
     }//GEN-LAST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
 
     private void RezultatuIzveleLogsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsAtpakalPogaMouseClicked
@@ -1359,19 +1451,22 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_ParolesMainisanaWindowClosing
 
     private void IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
-        try (Connection conn = getConnection(); Statement checkStmt = conn.createStatement()) {
-            try (ResultSet rs = checkStmt.executeQuery("SELECT title FROM survey")) {
-                while (rs.next()) {
-                    String nosaukums = rs.getString("title");
-                    RezultatuIzveleLogsAptaujasRezultati.addItem(nosaukums);
-                }
-                NavigacijasLogsIntervetajs.setVisible(false);
-                RezultatuIzveleLogs.setVisible(true);
-                RezultatuIzveleLogs.setSize(455, 320);
-                RezultatuIzveleLogs.setLocationRelativeTo(null);
+        try {
+            currentSurveys = new SurveyDAO().getSurveysByUserId(util.Session.getCurrentUserId());
+            if (currentSurveys.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Jums vēl nav izveidotu aptauju.");
+                return;
             }
+            RezultatuIzveleLogsAptaujasRezultati.removeAllItems();
+            for (Survey survey : currentSurveys) {
+                RezultatuIzveleLogsAptaujasRezultati.addItem(survey.getTitle());
+            }
+            NavigacijasLogsIntervetajs.setVisible(false);
+            RezultatuIzveleLogs.setVisible(true);
+            RezultatuIzveleLogs.setSize(455, 320);
+            RezultatuIzveleLogs.setLocationRelativeTo(null);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot aptaujas.");
             e.printStackTrace();
         }
     }//GEN-LAST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
@@ -1581,6 +1676,24 @@ public class SurveySystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Kļūda!");
         }
     }//GEN-LAST:event_ParolesMainisanaMainitParoliPogaMouseClicked
+
+    private void RezultatuApkAttParaditRezultatuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttParaditRezultatuMouseClicked
+        showCurrentQuestionResults();
+    }//GEN-LAST:event_RezultatuApkAttParaditRezultatuMouseClicked
+
+    private void RezultatuApkAttIeprieksejaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestionHeader();
+        }
+    }//GEN-LAST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
+
+    private void RezultatuApkAttNakamaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
+        if (currentQuestionIndex < currentQuestions.size() - 1) {
+            currentQuestionIndex++;
+            showQuestionHeader();
+        }
+    }//GEN-LAST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
 
     /**
      * @param args the command line arguments
