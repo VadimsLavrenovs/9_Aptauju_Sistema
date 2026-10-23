@@ -215,6 +215,11 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukumsTalaklPoga = new javax.swing.JButton();
         AptaujuIzveideNosaukumsAptaujasNosaukums = new javax.swing.JTextField();
         AptaujasNos = new javax.swing.JLabel();
+        AptaujasIzveleLogs = new javax.swing.JDialog();
+        AptaujuIzveleLogsAptaujasNosaukumi = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        AptaujuIzveleLogsApskatitPoga = new javax.swing.JButton();
+        AptaujuIzveleLogsAtpakalPoga = new javax.swing.JButton();
         GalvenaisLogsIeietPoga = new javax.swing.JButton();
         GalvenaisLogsRegistretiesPoga = new javax.swing.JButton();
 
@@ -467,6 +472,15 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        AtbilzuIevade.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                AtbilzuIevadeWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AtbilzuIevadeWindowClosing(evt);
+            }
+        });
+
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Jautājums");
 
@@ -551,6 +565,11 @@ public class SurveySystem extends javax.swing.JFrame {
         RezultatuApkAttParaditRezultatu.setBackground(new java.awt.Color(204, 102, 255));
         RezultatuApkAttParaditRezultatu.setForeground(new java.awt.Color(255, 255, 255));
         RezultatuApkAttParaditRezultatu.setText("Parādīt rezultātu");
+        RezultatuApkAttParaditRezultatu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RezultatuApkAttParaditRezultatuMouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -860,6 +879,11 @@ public class SurveySystem extends javax.swing.JFrame {
         RespondentsLogsPilditAptaujasPoga.setBackground(new java.awt.Color(204, 102, 255));
         RespondentsLogsPilditAptaujasPoga.setForeground(new java.awt.Color(255, 255, 255));
         RespondentsLogsPilditAptaujasPoga.setText("Pildīt aptaujas");
+        RespondentsLogsPilditAptaujasPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RespondentsLogsPilditAptaujasPogaMouseClicked(evt);
+            }
+        });
 
         RespondentsLogsMainitParoliPoga.setBackground(new java.awt.Color(204, 102, 255));
         RespondentsLogsMainitParoliPoga.setForeground(new java.awt.Color(255, 255, 255));
@@ -1157,6 +1181,64 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
+        AptaujasIzveleLogs.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AptaujasIzveleLogsWindowClosing(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel2.setText("Kādu aptauju Jūs gribat pildīt?");
+
+        AptaujuIzveleLogsApskatitPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujuIzveleLogsApskatitPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveleLogsApskatitPoga.setText("Apskatīt");
+        AptaujuIzveleLogsApskatitPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AptaujuIzveleLogsApskatitPogaMouseClicked(evt);
+            }
+        });
+
+        AptaujuIzveleLogsAtpakalPoga.setBackground(new java.awt.Color(204, 102, 255));
+        AptaujuIzveleLogsAtpakalPoga.setForeground(new java.awt.Color(255, 255, 255));
+        AptaujuIzveleLogsAtpakalPoga.setText("Atpakaļ");
+        AptaujuIzveleLogsAtpakalPoga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AptaujuIzveleLogsAtpakalPogaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AptaujasIzveleLogsLayout = new javax.swing.GroupLayout(AptaujasIzveleLogs.getContentPane());
+        AptaujasIzveleLogs.getContentPane().setLayout(AptaujasIzveleLogsLayout);
+        AptaujasIzveleLogsLayout.setHorizontalGroup(
+            AptaujasIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AptaujasIzveleLogsLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(AptaujuIzveleLogsApskatitPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AptaujuIzveleLogsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
+            .addGroup(AptaujasIzveleLogsLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(AptaujasIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AptaujuIzveleLogsAptaujasNosaukumi, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        AptaujasIzveleLogsLayout.setVerticalGroup(
+            AptaujasIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AptaujasIzveleLogsLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addGap(48, 48, 48)
+                .addComponent(AptaujuIzveleLogsAptaujasNosaukumi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(AptaujasIzveleLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AptaujuIzveleLogsApskatitPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AptaujuIzveleLogsAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 153, 255));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -1287,7 +1369,7 @@ public class SurveySystem extends javax.swing.JFrame {
                 NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
             } else {
                 NavigacijasLogsRespondent.setVisible(true);
-                NavigacijasLogsRespondent.setSize(458, 390);
+                NavigacijasLogsRespondent.setSize(445, 320);
                 NavigacijasLogsRespondent.setLocationRelativeTo(null);
             }
         } else {
@@ -1537,7 +1619,7 @@ public class SurveySystem extends javax.swing.JFrame {
                     NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
                 } else {
                     NavigacijasLogsRespondent.setVisible(true);
-                    NavigacijasLogsRespondent.setSize(458, 390);
+                    NavigacijasLogsRespondent.setSize(445, 320);
                     NavigacijasLogsRespondent.setLocationRelativeTo(null);
                 }
             } else {
@@ -1582,6 +1664,44 @@ public class SurveySystem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ParolesMainisanaMainitParoliPogaMouseClicked
 
+    private void RezultatuApkAttParaditRezultatuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttParaditRezultatuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RezultatuApkAttParaditRezultatuMouseClicked
+
+    private void AptaujuIzveleLogsApskatitPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveleLogsApskatitPogaMouseClicked
+        AptaujasIzveleLogs.setVisible(false);
+        AtbilzuIevade.setVisible(true);
+        AtbilzuIevade.setSize(400, 350);
+        AtbilzuIevade.setLocationRelativeTo(null);
+    }//GEN-LAST:event_AptaujuIzveleLogsApskatitPogaMouseClicked
+
+    private void AptaujuIzveleLogsAtpakalPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveleLogsAtpakalPogaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AptaujuIzveleLogsAtpakalPogaMouseClicked
+
+    private void AptaujasIzveleLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujasIzveleLogsWindowClosing
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AptaujasIzveleLogsWindowClosing
+
+    private void RespondentsLogsPilditAptaujasPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPogaMouseClicked
+        NavigacijasLogsRespondent.setVisible(false);
+        AptaujasIzveleLogs.setVisible(true);
+        AptaujasIzveleLogs.setSize(455, 320);
+        AptaujasIzveleLogs.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_RespondentsLogsPilditAptaujasPogaMouseClicked
+
+    private void AtbilzuIevadeWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AtbilzuIevadeWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AtbilzuIevadeWindowClosed
+
+    private void AtbilzuIevadeWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AtbilzuIevadeWindowClosing
+        AtbilzuIevade.setVisible(false);
+        NavigacijasLogsRespondent.setVisible(true);
+        NavigacijasLogsRespondent.setSize(445, 320);
+        NavigacijasLogsRespondent.setLocationRelativeTo(null);
+    }//GEN-LAST:event_AtbilzuIevadeWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -1619,6 +1739,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog AptaujasIzveleLogs;
     private javax.swing.JLabel AptaujasNos;
     private javax.swing.JDialog AptaujasRedigesana;
     private javax.swing.JTextField AptaujasRedigesana1AtbildeLogs;
@@ -1641,6 +1762,9 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JButton AptaujuIzveideNosaukumsAtpakalPoga;
     private javax.swing.JButton AptaujuIzveideNosaukumsTalaklPoga;
     private javax.swing.JButton AptaujuIzveidePievienotJaut;
+    private javax.swing.JButton AptaujuIzveleLogsApskatitPoga;
+    private javax.swing.JComboBox<String> AptaujuIzveleLogsAptaujasNosaukumi;
+    private javax.swing.JButton AptaujuIzveleLogsAtpakalPoga;
     private javax.swing.JDialog AtbilzuIevade;
     private javax.swing.JLabel AtbilzuIevade1Atbilde;
     private javax.swing.JCheckBox AtbilzuIevade1AtbildeBox;
@@ -1691,6 +1815,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
