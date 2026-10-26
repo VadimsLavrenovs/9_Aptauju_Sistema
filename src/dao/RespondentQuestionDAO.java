@@ -17,14 +17,9 @@ import model.RespondentQuestion;
  *
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
-
 public class RespondentQuestionDAO {
 
     private Connection connection;
-
-    public boolean saveAnswer(RespondentQuestion answer) {
-        return false;
-    }
 
     public List<RespondentQuestion> getAnswersByQuestionId(int questionId) throws SQLException {
         List<RespondentQuestion> answers = new ArrayList<>();
@@ -45,5 +40,25 @@ public class RespondentQuestionDAO {
             }
         }
         return answers;
+    }
+
+    public void saveAnswers(List<RespondentQuestion> answers) throws SQLException {
+        String sql = "INSERT INTO respondent_question (answer, user_id, question_id) VALUES (?, ?, ?)";
+
+        try (Connection conn = DatabaseManager.getConnection()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                for (RespondentQuestion rq : answers) {
+                    ps.setString(1, rq.getAnswer());
+                    ps.setInt(2, rq.getUserId());
+                    ps.setInt(3, rq.getQuestionId());
+                    ps.executeUpdate();
+                }
+                conn.commit();
+            } catch (SQLException e) {
+                conn.rollback();
+                throw e;
+            }
+        }
     }
 }

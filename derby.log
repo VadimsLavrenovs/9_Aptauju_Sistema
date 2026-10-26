@@ -1,12 +1,12 @@
 ----------------------------------------------------------------
-Fri Oct 23 13:13:42 EEST 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-01a1-6840-87b9-000007300000 
-on database directory C:\Users\user\Documents\Lavrenovs_PR-31\9_Aptauju_Sistema\database\appdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
-Loaded from file:/C:/Users/user/Documents/Lavrenovs_PR-31/9_Aptauju_Sistema/src/lib/derby.jar
+Mon Oct 26 17:44:50 EET 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-01a1-78e2-c619-00001f10b648 
+on database directory C:\Users\kulib\Documents\NetBeansProjects\9_Aptauju_Sistema\database\appdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Loaded from file:/C:/Users/kulib/Documents/NetBeansProjects/9_Aptauju_Sistema/src/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=21.0.12.1+1-LTS-4
-user.dir=C:\Users\user\Documents\Lavrenovs_PR-31\9_Aptauju_Sistema
-os.name=Windows 10
+java.runtime.version=21.0.12+7-LTS-205
+user.dir=C:\Users\kulib\Documents\NetBeansProjects\9_Aptauju_Sistema
+os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null

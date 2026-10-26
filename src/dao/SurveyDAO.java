@@ -39,8 +39,17 @@ public class SurveyDAO {
         return false;
     }
 
-    public boolean updateQuestion(Question question) {
-        return false;
+    public void updateQuestion(Question q) throws SQLException {
+        String sql = "UPDATE question SET question = ?, answer_1 = ?, answer_2 = ?, answer_3 = ? WHERE questionid = ?";
+
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, q.getQuestion());
+            ps.setString(2, q.getAnswer_1());
+            ps.setString(3, q.getAnswer_2());
+            ps.setString(4, q.getAnswer_3());
+            ps.setInt(5, q.getQuestionId());
+            ps.executeUpdate();
+        }
     }
 
     public List<Survey> getSurveysByUserId(int userId) throws SQLException {
@@ -83,5 +92,66 @@ public class SurveyDAO {
             }
         }
         return questions;
+    }
+
+    public List<Survey> getSurveysAvailableForRespondent(int userId) throws SQLException {
+        List<Survey> surveys = new ArrayList<>();
+        String sql = "SELECT s.surveyid, s.title, s.user_id FROM survey s "
+                + "WHERE EXISTS (SELECT 1 FROM question q WHERE q.survey_id = s.surveyid) "
+                + "AND NOT EXISTS (SELECT 1 FROM respondent_question rq "
+                + "JOIN question q2 ON rq.question_id = q2.questionid "
+                + "WHERE q2.survey_id = s.surveyid AND rq.user_id = ?) "
+                + "ORDER BY s.surveyid";
+
+        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Survey survey = new Survey();
+                    survey.setSurveyId(rs.getInt("surveyid"));
+                    survey.setTitle(rs.getString("title"));
+                    survey.setUserId(rs.getInt("user_id"));
+                    surveys.add(survey);
+                }
+            }
+        }
+        return surveys;
+    }
+
+    public int createSurveyWithQuestions(Survey survey, List<Question> questions) throws SQLException {
+        String surveySql = "INSERT INTO survey (title, user_id) VALUES (?, ?)";
+        String questionSql = "INSERT INTO question (question, answer_1, answer_2, answer_3, survey_id) "
+                + "VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection conn = DatabaseManager.getConnection()) {
+            conn.setAutoCommit(false);
+            try {
+                int surveyId;
+                try (PreparedStatement ps = conn.prepareStatement(surveySql, Statement.RETURN_GENERATED_KEYS)) {
+                    ps.setString(1, survey.getTitle());
+                    ps.setInt(2, survey.getUserId());
+                    ps.executeUpdate();
+                    try (ResultSet keys = ps.getGeneratedKeys()) {
+                        keys.next();
+                        surveyId = keys.getInt(1);
+                    }
+                }
+                try (PreparedStatement ps = conn.prepareStatement(questionSql)) {
+                    for (Question q : questions) {
+                        ps.setString(1, q.getQuestion());
+                        ps.setString(2, q.getAnswer_1());
+                        ps.setString(3, q.getAnswer_2());
+                        ps.setString(4, q.getAnswer_3());
+                        ps.setInt(5, surveyId);
+                        ps.executeUpdate();
+                    }
+                }
+                conn.commit();
+                return surveyId;
+            } catch (SQLException e) {
+                conn.rollback();
+                throw e;
+            }
+        }
     }
 }
