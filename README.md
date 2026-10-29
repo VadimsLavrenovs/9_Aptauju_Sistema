@@ -6,8 +6,11 @@ Dalībnieki:
 PR-31
 
 Lai ielogoties ar intervētāju:
-    lietotājvārds:admin
+    lietotājvārds:inter
     parole:parole
 Lai ielogoties ar respondentu:
     lietotājvārds:resp
+    parole:parole
+Lai ielogoties ar admin:
+    lietotājvārds:admin
     parole:parole
