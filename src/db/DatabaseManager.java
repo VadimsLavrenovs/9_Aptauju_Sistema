@@ -26,7 +26,7 @@ public class DatabaseManager {
             if (!user.next()) {
                 conn.createStatement().executeUpdate(
                         "CREATE TABLE app_user ("
-                        + "userid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                        + "userid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), "
                         + "username VARCHAR(50) NOT NULL UNIQUE, "
                         + "password VARCHAR(15) NOT NULL, "
                         + "role VARCHAR(11) NOT NULL)"

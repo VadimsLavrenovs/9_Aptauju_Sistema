@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="LietRegistracija">
       <Events>
@@ -1670,6 +1670,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="AdminLogsNavigacija">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="AdminLogsNavigacijaWindowClosing"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1682,8 +1685,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="RespondentsLogsMainitParoliPoga1" min="-2" pref="128" max="-2" attributes="0"/>
-                      <Component id="RespondentsLogsPilditAptaujasPoga1" min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="AdminLogsMainitParoli" min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="AdminSkatitDatusPoga" min="-2" pref="128" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1695,9 +1698,9 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="61" max="32767" attributes="0"/>
-                  <Component id="RespondentsLogsPilditAptaujasPoga1" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="AdminSkatitDatusPoga" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="RespondentsLogsMainitParoliPoga1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="AdminLogsMainitParoli" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -1712,7 +1715,7 @@
             <Property name="text" type="java.lang.String" value="Sveiki admin!"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="RespondentsLogsPilditAptaujasPoga1">
+        <Component class="javax.swing.JButton" name="AdminSkatitDatusPoga">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="cc" type="rgb"/>
@@ -1723,10 +1726,10 @@
             <Property name="text" type="java.lang.String" value="Apskat&#x12b;ties datus"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RespondentsLogsPilditAptaujasPoga1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AdminSkatitDatusPogaMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="RespondentsLogsMainitParoliPoga1">
+        <Component class="javax.swing.JButton" name="AdminLogsMainitParoli">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="cc" type="rgb"/>
@@ -1737,7 +1740,7 @@
             <Property name="text" type="java.lang.String" value="Main&#x12b;t paroli"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RespondentsLogsMainitParoliPoga1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AdminLogsMainitParoliMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
