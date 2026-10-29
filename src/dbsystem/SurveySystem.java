@@ -43,7 +43,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private java.util.List<Question> editQuestions = new ArrayList<>();
     private int editIndex = 0;
     private boolean editComboLoading = false;
-    private final java.awt.Color gaišiVioleta = new java.awt.Color(232, 220, 247);
+    private final java.awt.Color gaisiVioleta = new java.awt.Color(232, 220, 247);
 
     public SurveySystem() {
         initComponents();
@@ -55,7 +55,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     private void iestatitLoguKrasa() {
-        getContentPane().setBackground(gaišiVioleta);
+        getContentPane().setBackground(gaisiVioleta);
 
         javax.swing.JDialog[] logi = {
             LietRegistracija,
@@ -75,7 +75,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         for (javax.swing.JDialog logs : logi) {
             if (logs != null) {
-                logs.getContentPane().setBackground(gaišiVioleta);
+                logs.getContentPane().setBackground(gaisiVioleta);
             }
         }
     }
