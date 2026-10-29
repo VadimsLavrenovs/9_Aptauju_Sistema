@@ -7,7 +7,6 @@ package dbsystem;
 import dao.RespondentQuestionDAO;
 import dao.SurveyDAO;
 import db.DatabaseManager;
-import static db.DatabaseManager.getConnection;
 import java.util.*;
 import java.sql.*;
 import javax.swing.*;
