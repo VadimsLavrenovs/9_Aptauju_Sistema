@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu Oct 29 08:33:40 EET 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-01a1-865d-3cd0-000007302b50 
+Thu Oct 29 11:09:06 EET 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-01a1-86eb-8c7c-000007300000 
 on database directory C:\Users\user\Documents\Lavrenovs_PR-31\9_Aptauju_Sistema\database\appdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
 Loaded from file:/C:/Users/user/Documents/Lavrenovs_PR-31/9_Aptauju_Sistema/src/lib/derby.jar
 java.vendor=Oracle Corporation

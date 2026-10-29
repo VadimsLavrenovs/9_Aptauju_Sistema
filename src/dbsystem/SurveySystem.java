@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import model.Question;
 import model.RespondentQuestion;
 import model.Survey;
+import dao.UserDAO;
+import model.User;
 
 /**
  *
@@ -40,27 +42,50 @@ public class SurveySystem extends javax.swing.JFrame {
     private java.util.List<Question> editQuestions = new ArrayList<>();
     private int editIndex = 0;
     private boolean editComboLoading = false;
+    private final java.awt.Color gaišiVioleta = new java.awt.Color(232, 220, 247);
 
     public SurveySystem() {
         initComponents();
+        iestatitLoguKrasa();
         prepareResultsTable();
         prepareAnswerDialog();
         DatabaseManager.init();
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
+    private void iestatitLoguKrasa() {
+        getContentPane().setBackground(gaišiVioleta);
+
+        javax.swing.JDialog[] logi = {
+            LietRegistracija,
+            AptaujuIzveide,
+            AtbilzuIevade,
+            RezultatuApkAtt,
+            AptaujasRedigesana,
+            ParolesMainisana,
+            NavigacijasLogsRespondent,
+            NavigacijasLogsIntervetajs,
+            LoginLogs,
+            AptaujasIzveleLogs,
+            AptaujuIzveideNosaukums,
+            AdminLietotajiDialog
+        };
+
+        for (javax.swing.JDialog logs : logi) {
+            if (logs != null) {
+                logs.getContentPane().setBackground(gaišiVioleta);
+            }
+        }
+    }
+
     public boolean register(String username, String password, String role) {
-        String sql = "INSERT INTO APP_USER(username, password, role) VALUES (?, ?, ?)";
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setRole(role);
 
-        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setString(1, username);
-            ps.setString(2, password);
-            ps.setString(3, role);
-
-            ps.executeUpdate();
-            return true;
-
+        try {
+            return new UserDAO().saveUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -68,22 +93,17 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     public String login(String username, String password) {
-        String sql = "SELECT role, userid FROM APP_USER WHERE username = ? AND password = ?";
-        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, username);
-            ps.setString(2, password);
+        try {
+            User user = new UserDAO().getUserByUsername(username);
 
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    // Pašreizējais lietotājs
-                    int klientsId = rs.getInt("userid");
-                    util.Session.startSession(klientsId);
-
-                    return rs.getString("role");
-                }
+            if (user != null && user.getPassword().equals(password)) {
+                util.Session.startSession(user.getUserId());
+                return user.getRole();
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda autorizācijas laikā.");
+            JOptionPane.showMessageDialog(
+                    this, "Datubāzes kļūda autorizācijas laikā."
+            );
             e.printStackTrace();
         }
 
@@ -103,6 +123,31 @@ public class SurveySystem extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
 
+    }
+
+    private void ieladetLietotajus() {
+        javax.swing.table.DefaultTableModel tableModel
+                = (javax.swing.table.DefaultTableModel) lietotajiTable.getModel();
+
+        tableModel.setRowCount(0);
+
+        try {
+            java.util.List<model.User> users
+                    = new dao.UserDAO().getAllUsers();
+
+            for (model.User user : users) {
+                tableModel.addRow(new Object[]{
+                    user.getUserId(),
+                    user.getUsername(),
+                    user.getRole()
+                });
+            }
+        } catch (java.sql.SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Neizdevās ielādēt lietotājus: " + e.getMessage()
+            );
+        }
     }
 
     public void displayResults(int surveyId) {
@@ -342,7 +387,9 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujasRedigesana3AtbildeLogs.setText(q.getAnswer_3());
     }
 
-    public boolean changePassword(int userId, String jaunaParole, String atkaroti) {
+    public boolean changePassword(
+            int userId, String jaunaParole, String atkaroti) {
+
         if (jaunaParole.isEmpty() || atkaroti.isEmpty()) {
             return false;
         }
@@ -351,15 +398,8 @@ public class SurveySystem extends javax.swing.JFrame {
             return false;
         }
 
-        String sql = "UPDATE APP_USER SET password = ? WHERE userid = ?";
-
-        try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, jaunaParole);
-            ps.setInt(2, userId);
-
-            int change = ps.executeUpdate();
-            return change > 0;
-
+        try {
+            return new UserDAO().updatePassword(userId, jaunaParole);
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -474,6 +514,14 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukumsTalaklPoga = new javax.swing.JButton();
         AptaujuIzveideNosaukumsAptaujasNosaukums = new javax.swing.JTextField();
         AptaujasNos = new javax.swing.JLabel();
+        AdminLietotajiDialog = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lietotajiTable = new javax.swing.JTable();
+        AdminLogsNavigacija = new javax.swing.JDialog();
+        jLabel37 = new javax.swing.JLabel();
+        RespondentsLogsPilditAptaujasPoga1 = new javax.swing.JButton();
+        RespondentsLogsMainitParoliPoga1 = new javax.swing.JButton();
         GalvenaisLogsIeietPoga = new javax.swing.JButton();
         GalvenaisLogsRegistretiesPoga = new javax.swing.JButton();
 
@@ -1482,6 +1530,110 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
+        AdminLietotajiDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AdminLietotajiDialogWindowClosing(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setText("Administratora panelis");
+
+        lietotajiTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Lietotājvārds", "Loma"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(lietotajiTable);
+        if (lietotajiTable.getColumnModel().getColumnCount() > 0) {
+            lietotajiTable.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        javax.swing.GroupLayout AdminLietotajiDialogLayout = new javax.swing.GroupLayout(AdminLietotajiDialog.getContentPane());
+        AdminLietotajiDialog.getContentPane().setLayout(AdminLietotajiDialogLayout);
+        AdminLietotajiDialogLayout.setHorizontalGroup(
+            AdminLietotajiDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLietotajiDialogLayout.createSequentialGroup()
+                .addContainerGap(85, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(77, 77, 77))
+            .addGroup(AdminLietotajiDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        AdminLietotajiDialogLayout.setVerticalGroup(
+            AdminLietotajiDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminLietotajiDialogLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel37.setText("Sveiki admin!");
+
+        RespondentsLogsPilditAptaujasPoga1.setBackground(new java.awt.Color(204, 102, 255));
+        RespondentsLogsPilditAptaujasPoga1.setForeground(new java.awt.Color(255, 255, 255));
+        RespondentsLogsPilditAptaujasPoga1.setText("Apskatīties datus");
+        RespondentsLogsPilditAptaujasPoga1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RespondentsLogsPilditAptaujasPoga1MouseClicked(evt);
+            }
+        });
+
+        RespondentsLogsMainitParoliPoga1.setBackground(new java.awt.Color(204, 102, 255));
+        RespondentsLogsMainitParoliPoga1.setForeground(new java.awt.Color(255, 255, 255));
+        RespondentsLogsMainitParoliPoga1.setText("Mainīt paroli");
+        RespondentsLogsMainitParoliPoga1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RespondentsLogsMainitParoliPoga1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdminLogsNavigacijaLayout = new javax.swing.GroupLayout(AdminLogsNavigacija.getContentPane());
+        AdminLogsNavigacija.getContentPane().setLayout(AdminLogsNavigacijaLayout);
+        AdminLogsNavigacijaLayout.setHorizontalGroup(
+            AdminLogsNavigacijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLogsNavigacijaLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addGap(117, 117, 117))
+            .addGroup(AdminLogsNavigacijaLayout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addGroup(AdminLogsNavigacijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RespondentsLogsMainitParoliPoga1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RespondentsLogsPilditAptaujasPoga1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        AdminLogsNavigacijaLayout.setVerticalGroup(
+            AdminLogsNavigacijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminLogsNavigacijaLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(RespondentsLogsPilditAptaujasPoga1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(RespondentsLogsMainitParoliPoga1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 153, 255));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -1608,17 +1760,32 @@ public class SurveySystem extends javax.swing.JFrame {
         if (role != null) {
             LoginLogs.setVisible(false);
 
-            if ("Interviewer".equalsIgnoreCase(role)) {
-                NavigacijasLogsIntervetajs.setVisible(true);
+            if ("Admin".equalsIgnoreCase(role)) {
+                AdminLogsNavigacija.setSize(458, 390);
+                AdminLogsNavigacija.setLocationRelativeTo(null);
+                AdminLogsNavigacija.setVisible(true);
+
+            } else if ("Interviewer".equalsIgnoreCase(role)) {
                 NavigacijasLogsIntervetajs.setSize(458, 390);
                 NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
-            } else {
-                NavigacijasLogsRespondent.setVisible(true);
+                NavigacijasLogsIntervetajs.setVisible(true);
+
+            } else if ("Respondent".equalsIgnoreCase(role)) {
                 NavigacijasLogsRespondent.setSize(458, 390);
                 NavigacijasLogsRespondent.setLocationRelativeTo(null);
+                NavigacijasLogsRespondent.setVisible(true);
+
+            } else {
+                LoginLogs.setVisible(true);
+                JOptionPane.showMessageDialog(
+                        this, "Neatpazīta lietotāja loma: " + role
+                );
             }
+
         } else {
-            JOptionPane.showMessageDialog(this, "Nepareizs lietotājvārds vai parole.");
+            JOptionPane.showMessageDialog(
+                    this, "Nepareizs lietotājvārds vai parole."
+            );
         }
     }//GEN-LAST:event_LoginLogsIeietPogaMouseClicked
 
@@ -1788,57 +1955,12 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
 
     private void LietRegistracijaHelpPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaHelpPogaMouseClicked
-        try (Connection conn = getConnection(); Statement checkStmt = conn.createStatement()) {
-
-            System.out.println("\n=======================================================");
-            System.out.println("         PILNA DATUBĀZES SATURA PĀRBAUDE (GUI)         ");
-            System.out.println("=======================================================");
-
-            System.out.println("\n Tabula: APP_USER");
-            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM app_user")) {
-                while (rs.next()) {
-                    System.out.println("  • ID: " + rs.getInt("userid")
-                            + " | Lietotājs: " + rs.getString("username")
-                            + " | Loma: " + rs.getString("role")
-                            + " | Parole: " + rs.getString("password"));
-                }
-            }
-
-            System.out.println("\n Tabula: SURVEY");
-            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM survey")) {
-                while (rs.next()) {
-                    System.out.println("  • ID: " + rs.getInt("surveyid")
-                            + " | Nosaukums: " + rs.getString("title")
-                            + " | Izveidotāja ID: " + rs.getInt("user_id"));
-                }
-            }
-
-            System.out.println("\n Tabula: QUESTION");
-            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM question")) {
-                while (rs.next()) {
-                    System.out.println("  • ID: " + rs.getInt("questionid")
-                            + " | Jautājums: " + rs.getString("question")
-                            + " | A1: " + rs.getString("answer_1")
-                            + " | A2: " + rs.getString("answer_2")
-                            + " | A3: " + rs.getString("answer_3")
-                            + " | Aptaujas ID: " + rs.getInt("survey_id"));
-                }
-            }
-
-            System.out.println("\n Tabula: RESPONDENT_QUESTION");
-            try (ResultSet rs = checkStmt.executeQuery("SELECT * FROM respondent_question")) {
-                while (rs.next()) {
-                    System.out.println("  • ID: " + rs.getInt("respondent_questionid")
-                            + " | Atbilde: " + rs.getString("answer")
-                            + " | Lietotāja ID: " + rs.getInt("user_id")
-                            + " | Jautājuma ID: " + rs.getInt("question_id"));
-                }
-            }
-            System.out.println("\n=======================================================\n");
-
-        } catch (SQLException e) {
-            System.out.println("Kļūda, mēģinot nolasīt datus no GUI pogas: " + e.getMessage());
-        }
+        JOptionPane.showMessageDialog(
+                LietRegistracija,
+                "Ievadiet lietotājvārdu, paroli un paroles apstiprinājumu. "
+                + "Izvēlieties lietotāja lomu un nospiediet Reģistrēties.",
+                "Palīdzība",
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_LietRegistracijaHelpPogaMouseClicked
 
     private void LietRegistracijaRegistretiesPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LietRegistracijaRegistretiesPogaMouseClicked
@@ -2148,6 +2270,23 @@ public class SurveySystem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AptaujasRedigesanaSaglabatPogaMouseClicked
 
+    private void AdminLietotajiDialogWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AdminLietotajiDialogWindowClosing
+        AdminLietotajiDialog.setVisible(false);
+        LoginLogs.setVisible(true);
+        LoginLogs.setSize(400, 320);
+        LoginLogs.setLocationRelativeTo(null);
+        LoginLogsParole.setText("");
+        LoginLogsLietotajvards.setText("");
+    }//GEN-LAST:event_AdminLietotajiDialogWindowClosing
+
+    private void RespondentsLogsPilditAptaujasPoga1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPoga1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RespondentsLogsPilditAptaujasPoga1MouseClicked
+
+    private void RespondentsLogsMainitParoliPoga1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsMainitParoliPoga1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RespondentsLogsMainitParoliPoga1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2185,6 +2324,8 @@ public class SurveySystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog AdminLietotajiDialog;
+    private javax.swing.JDialog AdminLogsNavigacija;
     private javax.swing.JDialog AptaujasIzveleLogs;
     private javax.swing.JLabel AptaujasNos;
     private javax.swing.JDialog AptaujasRedigesana;
@@ -2240,7 +2381,9 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JButton ParolesMainisanaMainitParoliPoga;
     private javax.swing.JTextField ParolesMainisanaPasreizejaParole;
     private javax.swing.JButton RespondentsLogsMainitParoliPoga;
+    private javax.swing.JButton RespondentsLogsMainitParoliPoga1;
     private javax.swing.JButton RespondentsLogsPilditAptaujasPoga;
+    private javax.swing.JButton RespondentsLogsPilditAptaujasPoga1;
     private javax.swing.JDialog RezultatuApkAtt;
     private javax.swing.JButton RezultatuApkAttIeprieksejaisJautPoga;
     private javax.swing.JLabel RezultatuApkAttJautKartiba;
@@ -2257,6 +2400,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -2272,12 +2416,14 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -2285,6 +2431,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable lietotajiTable;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }

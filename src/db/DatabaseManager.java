@@ -42,8 +42,10 @@ public class DatabaseManager {
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('kristine', 'ZilaDebess', 'Respondent')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('edgars', 'ParoleX', 'Respondent')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('santa', 'Laimigs12', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('admin', 'parole', 'Admin')");
                 System.out.println("Tabula 'app_user' veiksmīgi izveidota!");
             }
+            
 
             ResultSet survey = meta.getTables(null, null, "SURVEY", null);
             if (!survey.next()) {
