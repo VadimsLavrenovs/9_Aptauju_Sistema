@@ -103,7 +103,7 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(
-                    this, "Datubāzes kļūda autorizācijas laikā."
+                    this, "Datubāzes kļūda autorizācijas laikā"
             );
             e.printStackTrace();
         }
