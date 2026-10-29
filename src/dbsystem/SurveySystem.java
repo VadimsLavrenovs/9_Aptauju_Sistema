@@ -130,7 +130,7 @@ public class SurveySystem extends javax.swing.JFrame {
         try {
             currentQuestions = new SurveyDAO().getQuestionsBySurveyId(surveyId);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus.");
+            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus");
             e.printStackTrace();
             return;
         }
