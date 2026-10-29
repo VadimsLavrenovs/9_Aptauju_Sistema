@@ -342,14 +342,6 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujasRedigesana3AtbildeLogs.setText(q.getAnswer_3());
     }
 
-    public void calculatePercentages(int surveyId) {
-
-    }
-
-    public boolean editSurvey(int userId, int surveyId) {
-        return false;
-    }
-
     public boolean changePassword(int userId, String jaunaParole, String atkaroti) {
         if (jaunaParole.isEmpty() || atkaroti.isEmpty()) {
             return false;

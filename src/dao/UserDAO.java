@@ -12,9 +12,6 @@ import model.User;
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
 public class UserDAO {
-
-    private Connection connection;
-
     public boolean saveUser(User user) {
         return false;
     }

@@ -18,10 +18,7 @@ import model.RespondentQuestion;
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
 public class RespondentQuestionDAO {
-
-    private Connection connection;
-
-    public List<RespondentQuestion> getAnswersByQuestionId(int questionId) throws SQLException {
+        public List<RespondentQuestion> getAnswersByQuestionId(int questionId) throws SQLException {
         List<RespondentQuestion> answers = new ArrayList<>();
         String sql = "SELECT respondent_questionid, question_id, user_id, answer "
                 + "FROM respondent_question WHERE question_id = ?";

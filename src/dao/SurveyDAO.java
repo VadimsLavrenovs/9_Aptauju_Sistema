@@ -16,25 +16,6 @@ import model.Survey;
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
 public class SurveyDAO {
-
-    private Connection connection;
-
-    public boolean createSurvey(Survey survey) {
-        return false;
-    }
-
-    public boolean deleteSurvey(int surveyId) {
-        return false;
-    }
-
-    public Survey getSurveyById(int surveyId) {
-        return null;
-    }
-
-    public boolean updateSurvey(Survey survey) {
-        return false;
-    }
-
     public boolean addQuestionToSurvey(Question question) {
         return false;
     }
