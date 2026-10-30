@@ -47,9 +47,9 @@ public class SurveySystem extends javax.swing.JFrame {
     public SurveySystem() {
         initComponents();
         iestatitLoguKrasa();
-        prepareResultsTable();
-        prepareAnswerDialog();
         DatabaseManager.init();
+        prepareResultsTable();
+        prepareAnswerDialog();        
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
@@ -123,30 +123,6 @@ public class SurveySystem extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(90);
         jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
-
-    }
-
-    public void displayResults(int surveyId) {
-        try {
-            currentQuestions = new SurveyDAO().getQuestionsBySurveyId(surveyId);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus");
-            e.printStackTrace();
-            return;
-        }
-
-        if (currentQuestions.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Šai aptaujai vēl nav jautājumu.");
-            return;
-        }
-
-        currentQuestionIndex = 0;
-        showQuestionHeader();
-
-        AptaujasIzveleLogs.setVisible(false);
-        RezultatuApkAtt.setVisible(true);
-        RezultatuApkAtt.setSize(403, 350);
-        RezultatuApkAtt.setLocationRelativeTo(null);
     }
 
     private void showQuestionHeader() {
@@ -276,30 +252,6 @@ public class SurveySystem extends javax.swing.JFrame {
         target.setVisible(true);
         target.setSize(458, 390);
         target.setLocationRelativeTo(null);
-    }
-
-    private void startFilling(Survey survey) {
-        try {
-            fillQuestions = new SurveyDAO().getQuestionsBySurveyId(survey.getSurveyId());
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus.");
-            e.printStackTrace();
-            return;
-        }
-        if (fillQuestions.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Šai aptaujai vēl nav jautājumu.");
-            return;
-        }
-
-        fillIndex = 0;
-        givenAnswers = new ArrayList<>();
-        AtbilzuIevade.setTitle(survey.getTitle());
-        showFillQuestion();
-
-        AptaujasIzveleLogs.setVisible(false);
-        AtbilzuIevade.setVisible(true);
-        AtbilzuIevade.setSize(420, 360);
-        AtbilzuIevade.setLocationRelativeTo(null);
     }
 
     private void showFillQuestion() {
@@ -1795,16 +1747,61 @@ public class SurveySystem extends javax.swing.JFrame {
 
     private void RezultatuIzveleLogsApskatitPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
         int index = RezultatuIzveleLogsAptaujasRezultati.getSelectedIndex();
+
         if (index < 0) {
             JOptionPane.showMessageDialog(this, "Lūdzu, izvēlieties aptauju!");
             return;
         }
+
         Survey survey = currentSurveys.get(index);
+
         if (respondentMode) {
-            startFilling(survey);
+            try {
+                fillQuestions = new SurveyDAO().getQuestionsBySurveyId(survey.getSurveyId());
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus.");
+                e.printStackTrace();
+                return;
+            }
+
+            if (fillQuestions.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Šai aptaujai vēl nav jautājumu.");
+                return;
+            }
+
+            fillIndex = 0;
+            givenAnswers = new ArrayList<>();
+            AtbilzuIevade.setTitle(survey.getTitle());
+            showFillQuestion();
+
+            AptaujasIzveleLogs.setVisible(false);
+            AtbilzuIevade.setVisible(true);
+            AtbilzuIevade.setSize(420, 360);
+            AtbilzuIevade.setLocationRelativeTo(null);
+
         } else {
             RezultatuApkAtt.setTitle(survey.getTitle());
-            displayResults(survey.getSurveyId());
+
+            try {
+                currentQuestions = new SurveyDAO().getQuestionsBySurveyId(survey.getSurveyId());
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot jautājumus");
+                e.printStackTrace();
+                return;
+            }
+
+            if (currentQuestions.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Šai aptaujai vēl nav jautājumu.");
+                return;
+            }
+
+            currentQuestionIndex = 0;
+            showQuestionHeader();
+
+            AptaujasIzveleLogs.setVisible(false);
+            RezultatuApkAtt.setVisible(true);
+            RezultatuApkAtt.setSize(403, 350);
+            RezultatuApkAtt.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
 
