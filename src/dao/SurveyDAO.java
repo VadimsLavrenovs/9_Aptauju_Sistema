@@ -16,10 +16,6 @@ import model.Survey;
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
 public class SurveyDAO {
-    public boolean addQuestionToSurvey(Question question) {
-        return false;
-    }
-
     public void updateQuestion(Question q) throws SQLException {
         String sql = "UPDATE question SET question = ?, answer_1 = ?, answer_2 = ?, answer_3 = ? WHERE questionid = ?";
 
