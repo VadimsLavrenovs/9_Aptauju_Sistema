@@ -9,21 +9,31 @@ package util;
  * @author Maksims Pļehanovs, Vadims Lavrenovs
  */
 public class Session {
-    private static int currentUserId = -1; 
+    private static int userId;
+    private static String userRole;
+    private static boolean loggedIn = false;
 
-    public static void startSession(int userId) {
-        currentUserId = userId;
+    public static void startSession(int id, String role) {
+        userId = id;
+        userRole = role;
+        loggedIn = true;
     }
 
-    public static void clearSession() {
-        currentUserId = -1;
-    }
-
-    public static int getCurrentUserId() {
-        return currentUserId;
+    public static int getUserId() {
+        return userId;
     }
 
     public static boolean isLoggedIn() {
-        return currentUserId != -1;
+        return loggedIn;
+    }
+    
+    public static String getRole() {
+        return userRole;
+    }
+    
+    public static void endSession() {
+        userId = 0;
+        userRole = null;
+        loggedIn = false;
     }
 }

@@ -49,7 +49,7 @@ public class SurveySystem extends javax.swing.JFrame {
         iestatitLoguKrasa();
         DatabaseManager.init();
         prepareResultsTable();
-        prepareAnswerDialog();        
+        prepareAnswerDialog();
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
     }
 
@@ -98,7 +98,7 @@ public class SurveySystem extends javax.swing.JFrame {
             User user = new UserDAO().getUserByUsername(username);
 
             if (user != null && user.getPassword().equals(password)) {
-                util.Session.startSession(user.getUserId());
+                util.Session.startSession(user.getUserId(), user.getRole());
                 return user.getRole();
             }
         } catch (SQLException e) {
@@ -242,16 +242,34 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setVisible(false);
         NavigacijasLogsRespondent.setVisible(false);
         AptaujasIzveleLogs.setVisible(true);
-        AptaujasIzveleLogs.setSize(455, 320);
-        AptaujasIzveleLogs.setLocationRelativeTo(null);
+        String role = util.Session.getRole();
+
+        if (role != null) {
+            if ("respondent".equalsIgnoreCase(role)) {
+                AptaujasIzveleLogs.setSize(360, 320);
+                AptaujasIzveleLogs.setLocationRelativeTo(null);
+            } else {
+                AptaujasIzveleLogs.setSize(470, 320);
+                AptaujasIzveleLogs.setLocationRelativeTo(null);
+            }
+        }
     }
 
     private void backFromSurveyChooser() {
         AptaujasIzveleLogs.setVisible(false);
-        JDialog target = respondentMode ? NavigacijasLogsRespondent : NavigacijasLogsIntervetajs;
-        target.setVisible(true);
-        target.setSize(458, 390);
-        target.setLocationRelativeTo(null);
+        String role = util.Session.getRole();
+
+        if (role != null) {
+            if ("respondent".equalsIgnoreCase(role)) {
+                NavigacijasLogsRespondent.setVisible(true);
+                NavigacijasLogsRespondent.setSize(458, 330);
+                NavigacijasLogsRespondent.setLocationRelativeTo(null);
+            } else {
+                NavigacijasLogsIntervetajs.setVisible(true);
+                NavigacijasLogsIntervetajs.setSize(458, 390);
+                NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+            }
+        }
     }
 
     private void showFillQuestion() {
@@ -269,7 +287,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private void finishFilling() {
         AtbilzuIevade.setVisible(false);
         NavigacijasLogsRespondent.setVisible(true);
-        NavigacijasLogsRespondent.setSize(458, 390);
+        NavigacijasLogsRespondent.setSize(458, 330);
         NavigacijasLogsRespondent.setLocationRelativeTo(null);
     }
 
@@ -281,7 +299,7 @@ public class SurveySystem extends javax.swing.JFrame {
             target.setSize(408, 330);
         } else if (passwordFromRespondent) {
             target = NavigacijasLogsRespondent;
-            target.setSize(458, 390);
+            target.setSize(458, 330);
         } else {
             target = NavigacijasLogsIntervetajs;
             target.setSize(458, 390);
@@ -481,6 +499,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         LietRegistracijaRegistretiesPoga.setBackground(new java.awt.Color(204, 102, 255));
         LietRegistracijaRegistretiesPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LietRegistracijaRegistretiesPoga.setForeground(new java.awt.Color(255, 255, 255));
         LietRegistracijaRegistretiesPoga.setText("Reģistrēties");
         LietRegistracijaRegistretiesPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -490,6 +509,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         LietRegistracijaAtpakalPoga.setBackground(new java.awt.Color(204, 102, 255));
         LietRegistracijaAtpakalPoga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LietRegistracijaAtpakalPoga.setForeground(new java.awt.Color(255, 255, 255));
         LietRegistracijaAtpakalPoga.setText("Atpakaļ");
         LietRegistracijaAtpakalPoga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -529,8 +549,8 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
                         .addComponent(LietRegistracijaRegistretiesPoga)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LietRegistracijaAtpakalPoga)
-                        .addGap(43, 43, 43))
+                        .addComponent(LietRegistracijaAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
                     .addGroup(LietRegistracijaLayout.createSequentialGroup()
                         .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -547,8 +567,8 @@ public class SurveySystem extends javax.swing.JFrame {
                                     .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(LietRegistracijaIntervetajs, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                .addGap(18, 18, 18)
-                .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         LietRegistracijaLayout.setVerticalGroup(
@@ -567,20 +587,18 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(LietRegistracijaLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(LietRegistracijaLayout.createSequentialGroup()
-                        .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(LietRegistracijaIntervetajs))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LietRegistracijaRegistretiesPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LietRegistracijaAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))))
+                .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(LietRegistracijaIntervetajs))
+                .addGap(47, 47, 47)
+                .addGroup(LietRegistracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LietRegistracijaRegistretiesPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LietRegistracijaAtpakalPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LietRegistracijaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LietRegistracijaHelpPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         AptaujuIzveide.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -763,17 +781,11 @@ public class SurveySystem extends javax.swing.JFrame {
         AtbilzuIevadeLayout.setHorizontalGroup(
             AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 157, Short.MAX_VALUE))
-            .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AtbilzuIevadeJautajums)
-                        .addGap(136, 136, 136))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(AtbilzuIevade2AtbildeBox)
@@ -785,33 +797,39 @@ public class SurveySystem extends javax.swing.JFrame {
                             .addComponent(AtbilzuIevade1Atbilde)
                             .addComponent(AtbilzuIevade3Atbilde))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
+                .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel13)))
+                .addGap(0, 157, Short.MAX_VALUE))
         );
         AtbilzuIevadeLayout.setVerticalGroup(
             AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(AtbilzuIevadeJautajums)
+                .addGap(28, 28, 28)
+                .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AtbilzuIevade1Atbilde)
+                    .addComponent(AtbilzuIevade1AtbildeBox))
+                .addGap(18, 18, 18)
                 .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtbilzuIevadeLayout.createSequentialGroup()
-                        .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtbilzuIevadeLayout.createSequentialGroup()
-                        .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AtbilzuIevadeJautajums)
-                            .addComponent(jLabel13))
-                        .addGap(47, 47, 47)
-                        .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(AtbilzuIevade1Atbilde)
-                            .addComponent(AtbilzuIevade1AtbildeBox))
+                    .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
+                        .addComponent(AtbilzuIevade2Atbilde)
                         .addGap(18, 18, 18)
                         .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AtbilzuIevadeLayout.createSequentialGroup()
-                                .addComponent(AtbilzuIevade2Atbilde)
-                                .addGap(18, 18, 18)
-                                .addGroup(AtbilzuIevadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AtbilzuIevade3Atbilde)
-                                    .addComponent(AtbilzuIevade3AtbildeBox)))
-                            .addComponent(AtbilzuIevade2AtbildeBox))
-                        .addGap(131, 131, 131))))
+                            .addComponent(AtbilzuIevade3Atbilde)
+                            .addComponent(AtbilzuIevade3AtbildeBox)))
+                    .addComponent(AtbilzuIevade2AtbildeBox))
+                .addGap(22, 22, 22)
+                .addComponent(AtbilzuIevadeTalakPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         RezultatuApkAtt.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -884,8 +902,8 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(RezultatuApkAttLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RezultatuApkAttJautKartiba, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -894,20 +912,21 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RezultatuApkAttJautSkaits, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         RezultatuApkAttLayout.setVerticalGroup(
             RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RezultatuApkAttLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(RezultatuApkAttJautKartiba)
-                    .addComponent(jLabel20)
-                    .addComponent(RezultatuApkAttJautSkaits))
+                .addContainerGap()
+                .addGroup(RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)
+                        .addComponent(RezultatuApkAttJautKartiba)
+                        .addComponent(jLabel20)
+                        .addComponent(RezultatuApkAttJautSkaits))
+                    .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1521,8 +1540,8 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         AdminLogsNavigacija.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1718,7 +1737,7 @@ public class SurveySystem extends javax.swing.JFrame {
                 NavigacijasLogsIntervetajs.setVisible(true);
 
             } else if ("Respondent".equalsIgnoreCase(role)) {
-                NavigacijasLogsRespondent.setSize(458, 390);
+                NavigacijasLogsRespondent.setSize(458, 330);
                 NavigacijasLogsRespondent.setLocationRelativeTo(null);
                 NavigacijasLogsRespondent.setVisible(true);
 
@@ -1776,7 +1795,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
             AptaujasIzveleLogs.setVisible(false);
             AtbilzuIevade.setVisible(true);
-            AtbilzuIevade.setSize(420, 360);
+            AtbilzuIevade.setSize(420, 300);
             AtbilzuIevade.setLocationRelativeTo(null);
 
         } else {
@@ -1857,7 +1876,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
     private void IntervetajsLogsApskatitiesRezultatusPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsApskatitiesRezultatusPogaMouseClicked
         try {
-            java.util.List<Survey> mySurveys = new SurveyDAO().getSurveysByUserId(util.Session.getCurrentUserId());
+            java.util.List<Survey> mySurveys = new SurveyDAO().getSurveysByUserId(util.Session.getUserId());
             if (mySurveys.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Jums vēl nav izveidotu aptauju.");
                 return;
@@ -1871,7 +1890,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
     private void IntervetajsLogsRedigetAptaujuPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntervetajsLogsRedigetAptaujuPogaMouseClicked
         try {
-            editSurveys = new SurveyDAO().getSurveysByUserId(util.Session.getCurrentUserId());
+            editSurveys = new SurveyDAO().getSurveysByUserId(util.Session.getUserId());
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Datubāzes kļūda, ielādējot aptaujas.");
             e.printStackTrace();
@@ -1906,7 +1925,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
         RezultatuApkAtt.setVisible(false);
         AptaujasIzveleLogs.setVisible(true);
-        AptaujasIzveleLogs.setSize(450, 320);
+        AptaujasIzveleLogs.setSize(470, 320);
         AptaujasIzveleLogs.setLocationRelativeTo(null);
     }//GEN-LAST:event_RezultatuApkAttWindowClosing
 
@@ -1932,7 +1951,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
     private void LoginLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LoginLogsWindowClosing
         // Izdzēš pašreizējo lietotāju
-        util.Session.clearSession();
+        util.Session.endSession();
         LoginLogs.setVisible(false);
         this.setVisible(true);
         this.setSize(400, 260);
@@ -2007,7 +2026,7 @@ public class SurveySystem extends javax.swing.JFrame {
                     NavigacijasLogsIntervetajs.setVisible(true);
 
                 } else if ("Respondent".equalsIgnoreCase(role)) {
-                    NavigacijasLogsRespondent.setSize(458, 390);
+                    NavigacijasLogsRespondent.setSize(458, 330);
                     NavigacijasLogsRespondent.setLocationRelativeTo(null);
                     NavigacijasLogsRespondent.setVisible(true);
 
@@ -2036,7 +2055,7 @@ public class SurveySystem extends javax.swing.JFrame {
     }//GEN-LAST:event_NavigacijasLogsRespondentWindowClosing
 
     private void ParolesMainisanaMainitParoliPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ParolesMainisanaMainitParoliPogaMouseClicked
-        int userId = util.Session.getCurrentUserId();
+        int userId = util.Session.getUserId();
 
         if (ParolesMainisanaJaunaParole.getText().isEmpty() || ParolesMainisanaAtkartotiParole.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Aizpildiet visus laukus!");
@@ -2050,7 +2069,7 @@ public class SurveySystem extends javax.swing.JFrame {
         boolean izdevas = changePassword(userId, ParolesMainisanaJaunaParole.getText(), ParolesMainisanaAtkartotiParole.getText());
         if (izdevas) {
             JOptionPane.showMessageDialog(this, "Parole veiksmīgi nomainīta!");
-            util.Session.clearSession();
+            util.Session.endSession();
             ParolesMainisana.setVisible(false);
             LoginLogs.setVisible(true);
             LoginLogs.setSize(400, 320);
@@ -2107,7 +2126,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         Survey survey = new Survey();
         survey.setTitle(newSurveyTitle);
-        survey.setUserId(util.Session.getCurrentUserId());
+        survey.setUserId(util.Session.getUserId());
 
         try {
             new SurveyDAO().createSurveyWithQuestions(survey, newQuestions);
@@ -2147,7 +2166,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
         RespondentQuestion rq = new RespondentQuestion();
         rq.setQuestionId(q.getQuestionId());
-        rq.setUserId(util.Session.getCurrentUserId());
+        rq.setUserId(util.Session.getUserId());
         rq.setAnswer(answer);
         givenAnswers.add(rq);
 
@@ -2178,7 +2197,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
     private void RespondentsLogsPilditAptaujasPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RespondentsLogsPilditAptaujasPogaMouseClicked
         try {
-            java.util.List<Survey> available = new SurveyDAO().getSurveysAvailableForRespondent(util.Session.getCurrentUserId());
+            java.util.List<Survey> available = new SurveyDAO().getSurveysAvailableForRespondent(util.Session.getUserId());
             if (available.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Pašlaik nav aptauju, ko Jūs varētu aizpildīt.");
                 return;
