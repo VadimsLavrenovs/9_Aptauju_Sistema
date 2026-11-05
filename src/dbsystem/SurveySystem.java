@@ -19,7 +19,7 @@ import model.User;
 
 /**
  *
- * @author Maksims Plehanovs, Vadims Lavrenovs
+ * @author Maksims Plehanovs, Vadims Lavrenovs PR-31
  */
 public class SurveySystem extends javax.swing.JFrame {
 
