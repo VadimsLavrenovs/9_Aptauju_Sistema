@@ -128,7 +128,8 @@ public class SurveySystem extends javax.swing.JFrame {
     private void showQuestionHeader() {
         RezultatuApkAttJautKartiba.setText(String.valueOf(currentQuestionIndex + 1));
         RezultatuApkAttJautSkaits.setText(String.valueOf(currentQuestions.size()));
-        ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+
+        showCurrentQuestionResults();
     }
 
     private void showCurrentQuestionResults() {
@@ -410,7 +411,6 @@ public class SurveySystem extends javax.swing.JFrame {
         AtbilzuIevade1AtbildeBox = new javax.swing.JCheckBox();
         AtbilzuIevade3AtbildeBox = new javax.swing.JCheckBox();
         RezultatuApkAtt = new javax.swing.JDialog();
-        RezultatuApkAttParaditRezultatu = new javax.swing.JButton();
         RezultatuApkAttRezultati = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         RezultatuApkAttNakamaisJautPoga = new javax.swing.JButton();
@@ -838,15 +838,6 @@ public class SurveySystem extends javax.swing.JFrame {
             }
         });
 
-        RezultatuApkAttParaditRezultatu.setBackground(new java.awt.Color(204, 102, 255));
-        RezultatuApkAttParaditRezultatu.setForeground(new java.awt.Color(255, 255, 255));
-        RezultatuApkAttParaditRezultatu.setText("Parādīt rezultātu");
-        RezultatuApkAttParaditRezultatu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RezultatuApkAttParaditRezultatuMouseClicked(evt);
-            }
-        });
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -891,14 +882,8 @@ public class SurveySystem extends javax.swing.JFrame {
         RezultatuApkAttLayout.setHorizontalGroup(
             RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(RezultatuApkAttLayout.createSequentialGroup()
-                .addGroup(RezultatuApkAttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RezultatuApkAttLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RezultatuApkAttLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(RezultatuApkAttParaditRezultatu)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(RezultatuApkAttLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -928,10 +913,8 @@ public class SurveySystem extends javax.swing.JFrame {
                     .addComponent(RezultatuApkAttIeprieksejaisJautPoga, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(RezultatuApkAttNakamaisJautPoga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RezultatuApkAttParaditRezultatu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11))
+                .addComponent(RezultatuApkAttRezultati, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         AptaujasRedigesana.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1922,13 +1905,6 @@ public class SurveySystem extends javax.swing.JFrame {
         NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
     }//GEN-LAST:event_AptaujasRedigesanaIzietPogaMouseClicked
 
-    private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
-        RezultatuApkAtt.setVisible(false);
-        AptaujasIzveleLogs.setVisible(true);
-        AptaujasIzveleLogs.setSize(470, 320);
-        AptaujasIzveleLogs.setLocationRelativeTo(null);
-    }//GEN-LAST:event_RezultatuApkAttWindowClosing
-
     private void AptaujasRedigesanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaWindowClosing
         AptaujasRedigesana.setVisible(false);
         NavigacijasLogsIntervetajs.setVisible(true);
@@ -2080,24 +2056,6 @@ public class SurveySystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Kļūda!");
         }
     }//GEN-LAST:event_ParolesMainisanaMainitParoliPogaMouseClicked
-
-    private void RezultatuApkAttParaditRezultatuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttParaditRezultatuMouseClicked
-        showCurrentQuestionResults();
-    }//GEN-LAST:event_RezultatuApkAttParaditRezultatuMouseClicked
-
-    private void RezultatuApkAttIeprieksejaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
-        if (currentQuestionIndex > 0) {
-            currentQuestionIndex--;
-            showQuestionHeader();
-        }
-    }//GEN-LAST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
-
-    private void RezultatuApkAttNakamaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
-        if (currentQuestionIndex < currentQuestions.size() - 1) {
-            currentQuestionIndex++;
-            showQuestionHeader();
-        }
-    }//GEN-LAST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
 
     private void AptaujuIzveidePievienotJautMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AptaujuIzveidePievienotJautMouseClicked
         if (addCurrentQuestion()) {
@@ -2354,6 +2312,27 @@ public class SurveySystem extends javax.swing.JFrame {
         LoginLogsLietotajvards.setText("");
     }//GEN-LAST:event_AdminLogsNavigacijaWindowClosing
 
+    private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
+        RezultatuApkAtt.setVisible(false);
+        AptaujasIzveleLogs.setVisible(true);
+        AptaujasIzveleLogs.setSize(470, 320);
+        AptaujasIzveleLogs.setLocationRelativeTo(null);
+    }//GEN-LAST:event_RezultatuApkAttWindowClosing
+
+    private void RezultatuApkAttIeprieksejaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestionHeader();
+        }
+    }//GEN-LAST:event_RezultatuApkAttIeprieksejaisJautPogaMouseClicked
+
+    private void RezultatuApkAttNakamaisJautPogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
+        if (currentQuestionIndex < currentQuestions.size() - 1) {
+            currentQuestionIndex++;
+            showQuestionHeader();
+        }
+    }//GEN-LAST:event_RezultatuApkAttNakamaisJautPogaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2456,7 +2435,6 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JLabel RezultatuApkAttJautKartiba;
     private javax.swing.JLabel RezultatuApkAttJautSkaits;
     private javax.swing.JButton RezultatuApkAttNakamaisJautPoga;
-    private javax.swing.JButton RezultatuApkAttParaditRezultatu;
     private javax.swing.JScrollPane RezultatuApkAttRezultati;
     private javax.swing.JButton RezultatuIzveleLogsApskatitPoga;
     private javax.swing.JComboBox<String> RezultatuIzveleLogsAptaujasRezultati;

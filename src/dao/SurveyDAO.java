@@ -16,6 +16,7 @@ import model.Survey;
  * @author Maksims Plehanovs, Vadims Lavrenovs
  */
 public class SurveyDAO {
+
     public void updateQuestion(Question q) throws SQLException {
         String sql = "UPDATE question SET question = ?, answer_1 = ?, answer_2 = ?, answer_3 = ? WHERE questionid = ?";
 
@@ -73,15 +74,13 @@ public class SurveyDAO {
 
     public List<Survey> getSurveysAvailableForRespondent(int userId) throws SQLException {
         List<Survey> surveys = new ArrayList<>();
+
         String sql = "SELECT s.surveyid, s.title, s.user_id FROM survey s "
                 + "WHERE EXISTS (SELECT 1 FROM question q WHERE q.survey_id = s.surveyid) "
-                + "AND NOT EXISTS (SELECT 1 FROM respondent_question rq "
-                + "JOIN question q2 ON rq.question_id = q2.questionid "
-                + "WHERE q2.survey_id = s.surveyid AND rq.user_id = ?) "
                 + "ORDER BY s.surveyid";
 
         try (Connection conn = DatabaseManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, userId);
+
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Survey survey = new Survey();
@@ -92,6 +91,7 @@ public class SurveyDAO {
                 }
             }
         }
+
         return surveys;
     }
 

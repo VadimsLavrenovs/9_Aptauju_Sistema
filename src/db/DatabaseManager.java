@@ -34,7 +34,7 @@ public class DatabaseManager {
                 java.sql.Statement stmt = conn.createStatement();
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('janis', 'Parole123', 'Interviewer')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('liene', 'SafePass99', 'Interviewer')");
-                stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('andris', 'ManaParole1', 'Respondent')");
+                stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('andris', 'parole', 'Respondent')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('ieva', 'Zemene2026', 'Respondent')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('peteris', 'Koks12345', 'Respondent')");
                 stmt.executeUpdate("INSERT INTO app_user (username, password, role) VALUES ('anna', 'Sveiks2026', 'Respondent')");
