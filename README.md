@@ -11,5 +11,5 @@ Lai ielogoties ar intervētāju:
     lietotājvārds:inter
     parole:parole
 Lai ielogoties ar respondentu:
-    lietotājvārds:resp
+    lietotājvārds:andris
     parole:parole
