@@ -8,7 +8,7 @@ Lai ielogoties ar administratoru:
     lietotājvārd:admin
     parole:parole
 Lai ielogoties ar intervētāju:
-    lietotājvārds:inter
+    lietotājvārds:janis
     parole:parole
 Lai ielogoties ar respondentu:
     lietotājvārds:andris
