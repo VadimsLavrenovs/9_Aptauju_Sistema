@@ -174,8 +174,6 @@ public class DatabaseManager {
 
     // Pievieno aptaujas, ja tās vēl neeksistē
     private static void seedSurveys(Connection conn) throws SQLException {
-
-        // Sākotnējās aptaujas
         addSurvey(conn, "Kafijas lietošanas paradumi", "janis");
         addSurvey(conn, "Sporta aktivitātes ikdienā", "janis");
         addSurvey(conn, "Attālinātā darba efektivitāte", "liene");
