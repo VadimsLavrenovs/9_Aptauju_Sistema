@@ -1802,7 +1802,7 @@ public class SurveySystem extends javax.swing.JFrame {
 
             AptaujasIzveleLogs.setVisible(false);
             RezultatuApkAtt.setVisible(true);
-            RezultatuApkAtt.setSize(403, 350);
+            RezultatuApkAtt.setSize(400, 255);
             RezultatuApkAtt.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_RezultatuIzveleLogsApskatitPogaMouseClicked
