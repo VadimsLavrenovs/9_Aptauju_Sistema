@@ -1961,6 +1961,21 @@ public class SurveySystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Aizpildiet visus laukus.");
             return;
         }
+        if (username.length() > 50) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Lietotājvārds nedrīkst būt garāks par 50 simboliem."
+            );
+            return;
+        }
+
+        if (password.length() > 15) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Parole nedrīkst būt garāka par 15 simboliem."
+            );
+            return;
+        }
         if (!password.equals(confirm)) {
             JOptionPane.showMessageDialog(this, "Paroles nesakrīt.");
             return;
